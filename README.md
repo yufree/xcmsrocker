@@ -2,9 +2,11 @@
 
 ## Rocker image for metabolomics data analysis
 
-For the image based on verse: use `docker pull yufree/xcmsrocker:latest`
-For the image based on tidyverse(smaller): use `docker pull yufree/xcmsrocker:small`
-For the image based on rstudio(tiny, Under Construction): use `docker pull yufree/xcmsrocker:tiny`
+- For the image based on verse: use `docker pull yufree/xcmsrocker:latest`
+
+- For the image based on tidyverse(smaller): use `docker pull yufree/xcmsrocker:small`
+
+- For the image based on rstudio(tiny, Under Construction): use `docker pull yufree/xcmsrocker:tiny`
 
 ## Packages
 
