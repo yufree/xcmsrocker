@@ -25,11 +25,11 @@ RUN apt-get update \
   && installGithub.r \
     omegahat/XMLSchema \
     bdemeshev/SSOAP \
-    yufree/xMSannotator \
-    yufree/xMSanalyzer \
-    yufree/apLCMS \
     yufree/enviGCMS \
     xia-lab/MetaboAnalystR \
+    yufree/apLCMS \
+    yufree/xMSanalyzer \
+    yufree/xMSannotator \
     yufree/x13cms \
     nathaniel-mahieu/warpgroup \
     nathaniel-mahieu/mz.unity \
