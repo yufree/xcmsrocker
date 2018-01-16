@@ -12,6 +12,13 @@
 
 - [xcms](https://bioconductor.org/packages/release/bioc/html/xcms.html)
 - [CAMERA](https://bioconductor.org/packages/release/bioc/html/CAMERA.html)
+- [x13cms](http://pubs.acs.org/doi/10.1021/ac403384n)
+- [credential](http://pubs.acs.org/doi/abs/10.1021/ac503092d)
+- [warpgroup](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv564)
+- [mz.unity](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01702)
 - [IPO](https://bioconductor.org/packages/release/bioc/html/IPO.html)
+- [apLCMS](https://sourceforge.net/projects/aplcms/)
+- [xMSanalyzer](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-15)
 - [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214)
+- [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR)
 - [enviGCMS](https://cran.r-project.org/web/packages/enviGCMS/index.html)

@@ -21,10 +21,19 @@ RUN apt-get update \
     devtools \
     remotes \
   ## from bioconductor
-  && R -e "BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'SSOAP', 'KEGGREST', 'Rdisop', 'qvalue'))" \
+  && R -e "source('https://bioconductor.org/biocLite.R'); BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'SSOAP', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     bdemeshev/SSOAP \
     yufree/xMSannotator \
+    yufree/xMSanalyzer \
+    yufree/apLCMS \
     yufree/enviGCMS \
+    xia-lab/MetaboAnalystR \
+    yufree/x13cms \
+    nathaniel-mahieu/warpgroup \
+    nathaniel-mahieu/mz.unity \
+    pattilab/credential \
+    
+    
 
