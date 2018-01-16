@@ -4,6 +4,13 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
+    libxml2-dev \
+    libcairo2-dev \
+    libsqlite-dev \
+    libmariadbd-dev \
+    libmariadb-client-lgpl-dev \
+    libpq-dev \
+    libssh2-1-dev \
   && install2.r --error \
     --deps TRUE \
     devtools \
