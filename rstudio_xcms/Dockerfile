@@ -13,6 +13,10 @@ RUN apt-get update \
     libssh2-1-dev \
     ## for rJava
     default-jdk \
+    ## used to build rJava and other packages
+    libbz2-dev \
+    libicu-dev \
+    liblzma-dev \
     ## for git via ssh key 
     ssh \
   && apt-get clean \

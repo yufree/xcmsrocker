@@ -4,6 +4,12 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
+    ## for rJava
+    default-jdk \
+    ## used to build rJava and other packages
+    libbz2-dev \
+    libicu-dev \
+    liblzma-dev \
   && R -e "BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'SSOAP', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
   && installGithub.r \
     omegahat/XMLSchema \
