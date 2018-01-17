@@ -21,6 +21,8 @@ RUN apt-get update \
     ghostscript \
     ## rgl support
     libglu1-mesa-dev \
+    ## cairo support
+    libxt-dev \
     ## for git via ssh key 
     ssh \
   && apt-get clean \
