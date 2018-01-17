@@ -17,6 +17,10 @@ RUN apt-get update \
     libbz2-dev \
     libicu-dev \
     liblzma-dev \
+    ## used by some base R plots
+    ghostscript \
+    ## rgl support
+    libglu1-mesa-dev \
     ## for git via ssh key 
     ssh \
   && apt-get clean \
