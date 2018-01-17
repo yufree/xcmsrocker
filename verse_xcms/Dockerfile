@@ -4,7 +4,7 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
-  && R -e "BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'SSOAP', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
+  && R -e "BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     bdemeshev/SSOAP \

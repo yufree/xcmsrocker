@@ -10,7 +10,7 @@ RUN apt-get update \
     libbz2-dev \
     libicu-dev \
     liblzma-dev \
-  && R -e "BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'SSOAP', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
+  && R -e "BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     bdemeshev/SSOAP \

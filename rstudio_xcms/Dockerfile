@@ -25,7 +25,7 @@ RUN apt-get update \
     devtools \
     remotes \
   ## from bioconductor
-  && R -e "source('https://bioconductor.org/biocLite.R'); BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'SSOAP', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
+  && R -e "source('https://bioconductor.org/biocLite.R'); BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     bdemeshev/SSOAP \
