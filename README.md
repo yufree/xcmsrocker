@@ -50,3 +50,4 @@
 - [Docker tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
 - [Rocker](https://www.rocker-project.org/)
 - [Report extra metabolomics packages or issues](https://github.com/yufree/xcmsrocker/issues)
+- [Meta-Workflow](https://bookdown.org/yufree/Metabolomics/)
