@@ -2,11 +2,14 @@
 
 ## Rocker image for metabolomics data analysis
 
-- For the image based on verse(Recommanded): use `docker pull yufree/xcmsrocker:latest`
+- For the image based on verse ( Recommanded ) : use `docker pull yufree/xcmsrocker:latest`
+[![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
-- For the image based on tidyverse(smaller): use `docker pull yufree/xcmsrocker:small`
+- For the image based on tidyverse ( smaller ) : use `docker pull yufree/xcmsrocker:small`
+[![](https://images.microbadger.com/badges/image/yufree/xcmsrocker:small.svg)](https://microbadger.com/images/yufree/xcmsrocker:small "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker:small.svg)](https://microbadger.com/images/yufree/xcmsrocker:small "Get your own version badge on microbadger.com")
 
-- For the image based on rstudio(tiny): use `docker pull yufree/xcmsrocker:tiny`
+- For the image based on rstudio ( tiny ) : use `docker pull yufree/xcmsrocker:tiny`
+[![](https://images.microbadger.com/badges/image/yufree/xcmsrocker:tiny.svg)](https://microbadger.com/images/yufree/xcmsrocker:tiny "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker:tiny.svg)](https://microbadger.com/images/yufree/xcmsrocker:tiny "Get your own version badge on microbadger.com")
 
 ## Usage
 
