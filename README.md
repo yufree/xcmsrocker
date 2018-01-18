@@ -42,3 +42,11 @@
 - [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214)
 - [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR)
 - [enviGCMS](https://cran.r-project.org/web/packages/enviGCMS/index.html)
+
+## Links
+
+- [Use docker to package your metabolomics study](https://yufree.cn/en/2018/01/17/use-docker-to-package-your-metabolomics-study/)
+- [Docker Hub](https://hub.docker.com/r/yufree/xcmsrocker/)
+- [Docker tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
+- [Rocker](https://www.rocker-project.org/)
+- [Report extra metabolomics packages or issues](https://github.com/yufree/xcmsrocker/issues)
