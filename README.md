@@ -2,11 +2,25 @@
 
 ## Rocker image for metabolomics data analysis
 
-- For the image based on verse: use `docker pull yufree/xcmsrocker:latest`
+- For the image based on verse(Recommanded): use `docker pull yufree/xcmsrocker:latest`
 
 - For the image based on tidyverse(smaller): use `docker pull yufree/xcmsrocker:small`
 
-- For the image based on rstudio(tiny, Under Construction): use `docker pull yufree/xcmsrocker:tiny`
+- For the image based on rstudio(tiny): use `docker pull yufree/xcmsrocker:tiny`
+
+## Usage
+
+1. Install Docker
+
+2. Pull the Rocker image
+
+3. Use `docker run --rm -p 8787:8787 yufree/xcmsrocker` to start the image
+
+4. Open the browser and visit http://localhost:8787 or http://[your-ip-address]:8787 to power on RStudio server
+
+5. Default user name and password are both `rstudio`
+
+6. Enjoy your data analysis!
 
 ## Packages
 
