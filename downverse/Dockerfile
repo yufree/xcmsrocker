@@ -1,0 +1,12 @@
+FROM rocker/verse:latest
+MAINTAINER "Miao Yu" yufreecas@gmail.com
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  && install2.r --error \
+    --deps TRUE \
+    bookdown \
+    blogdown \
+    xaringan \
+  && installGithub.r \
+    hadley/pkgdown \
