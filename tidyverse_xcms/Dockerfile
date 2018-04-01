@@ -29,4 +29,5 @@ RUN apt-get update \
     nathaniel-mahieu/warpgroup \
     nathaniel-mahieu/mz.unity \
     pattilab/credential \
-
+    blosloos/nontarget \
+    
