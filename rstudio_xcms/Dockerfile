@@ -48,3 +48,5 @@ RUN apt-get update \
     blosloos/nontarget \
     bryanhanson/ChemoSpec \
     rwehrens/metaMS \
+    cbroeckl/RAMClustR \
+    
