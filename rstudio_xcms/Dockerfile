@@ -35,7 +35,7 @@ RUN apt-get update \
   && R -e "source('https://bioconductor.org/biocLite.R'); BiocInstaller::biocLite(c('xcms','IPO','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
   && installGithub.r \
     omegahat/XMLSchema \
-    bdemeshev/SSOAP \
+    cran/SSOAP \
     yufree/enviGCMS \
     xia-lab/MetaboAnalystR \
     yufree/apLCMS \
