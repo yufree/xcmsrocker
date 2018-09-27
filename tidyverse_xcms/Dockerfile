@@ -16,7 +16,7 @@ RUN apt-get update \
     libglu1-mesa-dev \
     ## cairo support
     libxt-dev \
-  && R -e "BiocInstaller::biocLite(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz'))" \
+  && R -e "BiocInstaller::biocLite(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     cran/SSOAP \
