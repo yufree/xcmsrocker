@@ -8,5 +8,6 @@ RUN apt-get update \
     bookdown \
     blogdown \
     xaringan \
-  && installGithub.r \
-    hadley/pkgdown \
+    pkgdown \
+    xfun
+    
