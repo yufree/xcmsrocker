@@ -49,6 +49,7 @@
 - [enviGCMS](https://cran.r-project.org/web/packages/enviGCMS/index.html)
 - [ChemoSpec](https://cran.r-project.org/web/packages/ChemoSpec/index.html)
 - [pmd](https://www.sciencedirect.com/science/article/pii/S0003267018313047)
+- [decoMS2](https://pubs.acs.org/doi/10.1021/ac400751j)
 
 ### Batch correction
 

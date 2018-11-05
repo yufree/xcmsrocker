@@ -36,4 +36,5 @@ RUN apt-get update \
     cbroeckl/RAMClustR \
     ropensci/webchem \
     rwehrens/BatchCorrMetabolomics \
+    yufree/decoMS2 \
     
