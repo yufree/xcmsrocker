@@ -6,10 +6,6 @@ RUN apt-get update \
     libnetcdf-dev \
     libxml2-dev \
     libcairo2-dev \
-    libsqlite-dev \
-    libmariadbd-dev \
-    libmariadb-client-lgpl-dev \
-    libpq-dev \
     libssh2-1-dev \
     ## for rJava
     default-jdk \
@@ -42,6 +38,7 @@ RUN apt-get update \
     yufree/xMSanalyzer \
     yufree/xMSannotator \
     yufree/x13cms \
+    yufree/pmd \
     nathaniel-mahieu/warpgroup \
     nathaniel-mahieu/mz.unity \
     pattilab/credential \
@@ -49,4 +46,5 @@ RUN apt-get update \
     bryanhanson/ChemoSpec \
     rwehrens/metaMS \
     cbroeckl/RAMClustR \
-    
+    ropensci/webchem \
+    rwehrens/BatchCorrMetabolomics \
