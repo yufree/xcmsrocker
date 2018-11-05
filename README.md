@@ -54,16 +54,16 @@
 
 - [BatchCorrMetabolomics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4796354/)
 
-## Peaks annotation
+### Peaks annotation
 
 - [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214)
 - [credential](http://pubs.acs.org/doi/abs/10.1021/ac503092d)
 
-## Statistical analysis
+### Statistical analysis
 
 - [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR)
 
-## Chemometrics
+### Chemometrics
 
 - [rcdk](https://cran.r-project.org/web/packages/rcdk/index.html)
 - [ChemmineR](https://www.bioconductor.org/packages/devel/bioc/vignettes/ChemmineR/inst/doc/ChemmineR.html)
