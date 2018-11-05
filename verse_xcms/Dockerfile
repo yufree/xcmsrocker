@@ -6,7 +6,7 @@ RUN apt-get update \
     libnetcdf-dev \
     ## rgl support
     libglu1-mesa-dev \
-  && R -e "BiocInstaller::biocLite(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR'))" \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     cran/SSOAP \

@@ -27,8 +27,9 @@ RUN apt-get update \
     devtools \
     remotes \
     shiny \
+    BiocManager \
   ## from bioconductor
-  && R -e "source('https://bioconductor.org/biocLite.R'); BiocInstaller::biocLite(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR'))" \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     cran/SSOAP \
