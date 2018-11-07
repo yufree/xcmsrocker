@@ -9,5 +9,8 @@ RUN apt-get update \
     blogdown \
     xaringan \
     pkgdown \
-    xfun
+    xfun \
+    liftr \
+    radix \
+    citr \
     
