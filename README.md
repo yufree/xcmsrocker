@@ -1,16 +1,14 @@
 # xcmsrocker
 
-## Rocker image for metabolomics data analysis
-
-- Use `docker pull yufree/xcmsrocker:latest`
+Rocker image for metabolomics data analysis
 
 [![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
 ## Usage
 
-1. Install Docker
+1. Install [Docker](https://www.docker.com/)
 
-2. Pull the Rocker image
+2. Pull the Rocker image `docker pull yufree/xcmsrocker:latest`
 
 3. Use `docker run --rm -p 8787:8787 yufree/xcmsrocker` to start the image
 
