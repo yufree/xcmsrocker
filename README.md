@@ -10,7 +10,7 @@ Rocker image for metabolomics data analysis
 
 2. Pull the Rocker image `docker pull yufree/xcmsrocker:latest`
 
-3. Use `docker run --rm -p 8787:8787 yufree/xcmsrocker` to start the image
+3. Use `docker run -e PASSWORD=rstudio -p 8787:8787 rocker/rstudio` to start the image
 
 4. Open the browser and visit http://localhost:8787 or http://[your-ip-address]:8787 to power on RStudio server
 
