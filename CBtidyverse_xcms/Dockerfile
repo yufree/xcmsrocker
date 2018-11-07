@@ -16,9 +16,10 @@ RUN apt-get update \
     libglu1-mesa-dev \
     ## cairo support
     libxt-dev \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS'))" \
   && install2.r --error \
+    --deps TRUE \
     enviGCMS \
     nontarget \
     ChemoSpec \
     webchem \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS'))" \
