@@ -28,12 +28,15 @@ RUN apt-get update \
     remotes \
     shiny \
     BiocManager \
+    enviGCMS \
+    nontarget \
+    ChemoSpec \
+    webchem \
   ## from bioconductor
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR'))" \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS'))" \
   && installGithub.r \
     omegahat/XMLSchema \
     cran/SSOAP \
-    yufree/enviGCMS \
     xia-lab/MetaboAnalystR \
     yufree/apLCMS \
     yufree/xMSanalyzer \
@@ -43,10 +46,6 @@ RUN apt-get update \
     nathaniel-mahieu/warpgroup \
     nathaniel-mahieu/mz.unity \
     pattilab/credential \
-    blosloos/nontarget \
-    bryanhanson/ChemoSpec \
-    rwehrens/metaMS \
     cbroeckl/RAMClustR \
-    ropensci/webchem \
     rwehrens/BatchCorrMetabolomics \
     yufree/decoMS2 \
