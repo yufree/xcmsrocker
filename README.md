@@ -39,7 +39,11 @@ Rocker image for metabolomics data analysis
 - [enviGCMS](https://cran.r-project.org/web/packages/enviGCMS/index.html)
 - [ChemoSpec](https://cran.r-project.org/web/packages/ChemoSpec/index.html)
 - [pmd](https://www.sciencedirect.com/science/article/pii/S0003267018313047)
+
+#### For MS/MS
+
 - [decoMS2](https://pubs.acs.org/doi/10.1021/ac400751j)
+- [msPurity](https://pubs.acs.org/doi/10.1021/acs.analchem.6b04358)
 
 ### Batch correction
 
