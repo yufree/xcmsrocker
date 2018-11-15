@@ -27,18 +27,19 @@ Rocker image for metabolomics data analysis
 - [apLCMS](https://sourceforge.net/projects/aplcms/)
 - [x13cms](http://pubs.acs.org/doi/10.1021/ac403384n)
 
-### Peak filter/group/visulization
+### Peak filter/visulization/annotation
 
+- [warpgroup](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv564)
+- [xMSanalyzer](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-15)
+- [enviGCMS](https://cran.r-project.org/web/packages/enviGCMS/index.html)
+- [pmd](https://www.sciencedirect.com/science/article/pii/S0003267018313047)
 - [CAMERA](https://bioconductor.org/packages/release/bioc/html/CAMERA.html)
 - [RAMClustR](https://pubs.acs.org/doi/abs/10.1021/ac501530d)
-- [metaMS](https://www.ncbi.nlm.nih.gov/pubmed/24656939)
-- [warpgroup](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv564)
 - [mz.unity](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01702)
-- [xMSanalyzer](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-15)
 - [nontarget](https://cran.r-project.org/web/packages/nontarget/index.html)
-- [enviGCMS](https://cran.r-project.org/web/packages/enviGCMS/index.html)
+- [metaMS](https://www.ncbi.nlm.nih.gov/pubmed/24656939)
 - [ChemoSpec](https://cran.r-project.org/web/packages/ChemoSpec/index.html)
-- [pmd](https://www.sciencedirect.com/science/article/pii/S0003267018313047)
+
 
 #### For MS/MS
 
@@ -49,7 +50,7 @@ Rocker image for metabolomics data analysis
 
 - [BatchCorrMetabolomics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4796354/)
 
-### Peaks annotation
+### Peaks identification
 
 - [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214)
 - [credential](http://pubs.acs.org/doi/abs/10.1021/ac503092d)
@@ -63,6 +64,7 @@ Rocker image for metabolomics data analysis
 - [rcdk](https://cran.r-project.org/web/packages/rcdk/index.html)
 - [ChemmineR](https://www.bioconductor.org/packages/devel/bioc/vignettes/ChemmineR/inst/doc/ChemmineR.html)
 - [webchem](https://github.com/ropensci/webchem)
+- [Rdisop](https://bioconductor.org/packages/release/bioc/html/Rdisop.html)
 
 ## Links
 
