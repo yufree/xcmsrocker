@@ -12,4 +12,5 @@ RUN apt-get update \
     nontarget \
     ChemoSpec \
     webchem \
+    InterpretMSSpectrum \
   
