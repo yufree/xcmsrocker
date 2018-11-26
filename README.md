@@ -2,6 +2,18 @@
 
 Rocker image for metabolomics data analysis
 
+For Java, you could select [MSDK](https://msdk.github.io/).
+
+For C/C++, you could select [openms](https://www.openms.de/) or [ProteoWizard](http://proteowizard.sourceforge.net/).
+
+For C#, you could select [Prime](http://prime.psc.riken.jp/).
+
+For Matlab, you could select [Bioinformatics Toolbox](https://www.nature.com/protocolexchange/protocols/4347#).
+
+For python, you could select [emzed](http://emzed.ethz.ch/index.html).
+
+However, I suggest this R-based image for starter and hopefully we could see a Julia platform in the future.
+
 [![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
 ## Usage
