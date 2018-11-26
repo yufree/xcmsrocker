@@ -56,6 +56,7 @@ Rocker image for metabolomics data analysis
 ### Batch correction
 
 - [BatchCorrMetabolomics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4796354/) Improved batch correction in untargeted MS-based metabolomics
+- [Msprep](https://github.com/KechrisLab/MSPrep) Summarization, normalization and diagnostics for processing of mass spectrometry–based metabolomic data 
 
 ### Peaks identification
 

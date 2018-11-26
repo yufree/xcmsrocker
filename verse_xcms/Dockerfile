@@ -17,3 +17,5 @@ RUN apt-get update \
     cbroeckl/RAMClustR \
     rwehrens/BatchCorrMetabolomics \
     yufree/decoMS2 \
+    KechrisLab/MSPrep \
+
