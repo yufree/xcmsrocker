@@ -13,4 +13,5 @@ RUN apt-get update \
     ChemoSpec \
     webchem \
     InterpretMSSpectrum \
+    pmd \
   
