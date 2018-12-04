@@ -10,7 +10,6 @@ RUN apt-get update \
     yufree/xMSanalyzer \
     yufree/xMSannotator \
     yufree/x13cms \
-    yufree/pmd \
     nathaniel-mahieu/warpgroup \
     nathaniel-mahieu/mz.unity \
     pattilab/credential \
