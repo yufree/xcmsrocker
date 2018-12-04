@@ -18,4 +18,9 @@ RUN apt-get update \
     rwehrens/BatchCorrMetabolomics \
     yufree/decoMS2 \
     KechrisLab/MSPrep \
+    jaspershen/MetNormalizer \
+    yufree/MetDIA \
+    yufree/SWATHtoMRM \
+    yufree/MetaboDIA \
+
 
