@@ -71,7 +71,6 @@ However, I suggest this R-based image for starter and hopefully we could see a J
 ### Batch correction
 
 - [Msprep](https://github.com/KechrisLab/MSPrep) Summarization, normalization and diagnostics for processing of mass spectrometry–based metabolomic data by Median, Quantile, Cross-Contribution Compensating Multiple Standard Normalization (CRMN), Surrogate Variable Analysis (SVA) and Removal of Unwanted Variation (RUV). 
-- [MetNormalizer](https://github.com/jaspershen/MetNormalizer)  Normalization and Integration of Large-Scale Metabolomics Data Using Support Vector Regression by pool QC.
 - [BatchCorrMetabolomics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4796354/) Improved batch correction in untargeted MS-based metabolomics by pool QC.
 
 ### Peaks identification
