@@ -20,5 +20,6 @@ RUN apt-get update \
     yufree/MetDIA \
     yufree/SWATHtoMRM \
     yufree/MetaboDIA \
-
+    WMBEdmands/MetMSLine \
+    WMBEdmands/compMS2Miner \
 
