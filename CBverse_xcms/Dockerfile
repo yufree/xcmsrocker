@@ -6,6 +6,9 @@ RUN apt-get update \
     libnetcdf-dev \
     ## rgl support
     libglu1-mesa-dev \
+    ## tcl tk support
+    tcl8.5-dev \
+    tk8.5-dev \
   && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity'))" \
   && install2.r --error \
     enviGCMS \
