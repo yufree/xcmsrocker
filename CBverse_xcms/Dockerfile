@@ -17,4 +17,5 @@ RUN apt-get update \
     webchem \
     InterpretMSSpectrum \
     pmd \
+    tcltk2 \
   
