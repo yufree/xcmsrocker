@@ -5,6 +5,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
     ## rgl support
+    libcgal-dev \
     libglu1-mesa-dev \
     ## tcl tk support
     tcl8.6-dev \
