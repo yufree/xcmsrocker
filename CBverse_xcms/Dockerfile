@@ -20,4 +20,4 @@ RUN apt-get update \
     InterpretMSSpectrum \
     pmd \
     tcltk2 \
-    rgl \
+    ROCS \
