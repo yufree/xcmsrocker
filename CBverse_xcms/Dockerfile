@@ -7,6 +7,7 @@ RUN apt-get update \
     ## rgl support
     libcgal-dev \
     libglu1-mesa-dev \
+    libfreetype6-dev \
     ## tcl tk support
     tcl8.6-dev \
     tk8.6-dev \
@@ -19,4 +20,4 @@ RUN apt-get update \
     InterpretMSSpectrum \
     pmd \
     tcltk2 \
-  
+    rgl \
