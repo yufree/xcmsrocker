@@ -5,6 +5,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
     ## rgl support
+    libx11-dev \
     libgl1-mesa-dev \
     libglu1-mesa-dev \
     libfreetype6-dev \
