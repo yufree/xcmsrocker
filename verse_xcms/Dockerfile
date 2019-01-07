@@ -21,4 +21,5 @@ RUN apt-get update \
     yufree/MetaboDIA \
     WMBEdmands/MetMSLine \
     WMBEdmands/compMS2Miner \
+    yufree/rmwf \
 
