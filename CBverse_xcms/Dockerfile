@@ -20,3 +20,4 @@ RUN apt-get update \
     pmd \
     tcltk2 \
     ROCS \
+    plotly \
