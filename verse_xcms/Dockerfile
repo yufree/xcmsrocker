@@ -22,4 +22,5 @@ RUN apt-get update \
     WMBEdmands/MetMSLine \
     WMBEdmands/compMS2Miner \
     yufree/rmwf \
+    yufree/rfigshare \
 
