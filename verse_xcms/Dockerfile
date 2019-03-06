@@ -23,3 +23,4 @@ RUN apt-get update \
     WMBEdmands/compMS2Miner \
     yufree/rmwf \
     c-ruttkies/MetFragR/metfRag \
+    yufree/rfigshare \
