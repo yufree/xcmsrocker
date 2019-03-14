@@ -94,6 +94,12 @@ Same software is not the end and detailed workflow would be the key to reproduci
 - [ChemmineR](https://www.bioconductor.org/packages/devel/bioc/vignettes/ChemmineR/inst/doc/ChemmineR.html) Cheminformatics Toolkit for R 
 - [webchem](https://github.com/ropensci/webchem) Chemical Information from the Web 
 
+### Reproducible research
+
+- [](https://bioconductor.org/packages/release/bioc/html/Risa.html) Converting experimental metadata from ISA-tab into Bioconductor data structures
+
+- [rmwf](https://github.com/yufree/rmwf) Reproducilble Metabolomics WorkFlow(RMWF) is a R package for xcmsrocker. It will show the workflow templates and demo data for different R-based metabolomics software. User could use this package to make meta-analysis for different workflows.
+
 ## Links
 
 - [Use docker to package your metabolomics study](https://yufree.cn/en/2018/01/17/use-docker-to-package-your-metabolomics-study/)

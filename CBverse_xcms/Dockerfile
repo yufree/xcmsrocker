@@ -10,14 +10,12 @@ RUN apt-get update \
     ## tcl tk support
     tcl8.6-dev \
     tk8.6-dev \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics'))" \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics','Rita'))" \
   && install2.r --error \
-    enviGCMS \
     nontarget \
     ChemoSpec \
     webchem \
     InterpretMSSpectrum \
-    pmd \
     tcltk2 \
     ROCS \
     plotly \
