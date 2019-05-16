@@ -10,7 +10,7 @@ RUN apt-get update \
     yufree/xMSannotator \
     yufree/x13cms \
     nathaniel-mahieu/warpgroup \
-    nathaniel-mahieu/mz.unity \
+    yufree/mz.unity \
     pattilab/credential \
     cbroeckl/RAMClustR \
     rwehrens/BatchCorrMetabolomics \
