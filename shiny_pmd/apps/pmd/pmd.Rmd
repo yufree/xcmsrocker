@@ -1,0 +1,151 @@
+---
+title: "Paired Mass Distance(PMD) analysis"
+author: "Miao Yu"
+date: "`r Sys.Date()`"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Inputs
+
+### Data format
+
+```{r echo=FALSE,out.width = "500px"}
+knitr::include_graphics('https://yufree.github.io/presentation/figure/democsv.png')
+```
+
+The uploaded file should be one csv file. The first column should be peak ID. The second column should be mass to charge ratio of peaks. The third column should be retention time in seconds. The other column should be peaks intensities in each samples. The header should be 'mz', 'rt', and sample names. The second row should include group information of each sample. Such file could be output by `getcsv` function for a 'mzrt' object from enviGCMS package. However, it's also easy to manually write one csv file as shown above. Here is the demo csv [file](https://raw.githubusercontent.com/yufree/democode/master/data/tbbpamzrt.csv).
+
+```{r globalstd, echo=FALSE}
+library(pmd)
+inputPanel(
+  fileInput('file',label = 'Upload csv file with m/z, retention time, peaklist and group info',accept = c('.csv')),
+  sliderInput("rtcutoff", label = "Cutoff for retention time cluster analysis:",
+              min = 1, max = 20, value = 9, step = 1),
+  sliderInput("ng", label = "cutoff of PMD(within RT cluster)'s  retention time group numbers:",
+              min = 5, max = 200, value = 10, step = 1)
+)
+```
+
+## Outputs
+
+### Download the results
+
+```{r output,echo=FALSE}
+datainput <- reactive({
+                if (!is.null(input$file)){
+                        dataraw <- read.csv(input$file$datapath,skip = 1)
+                        mz <- dataraw[,2]
+                        rt <- dataraw[,3]
+                        data <- dataraw[,-c(1:3)]
+                        group <- data.frame(t(read.csv(input$file$datapath,nrows = 1)[-(1:3)]))
+                        colnames(group) <- c(1:ncol(group))
+                        colnames(data) <- rownames(group)
+                        rownames(data) <- dataraw[,1]
+                        return(list(data=data,mz=mz,rt=rt,group=group))
+                }else{
+                        return(NULL)
+                }
+        })
+datastd <- reactive({
+        list <- datainput()
+        if(!is.null(list)){
+                list <- globalstd(list,input$rtcutoff,input$ng)
+        }
+        return(list)
+})
+stdcsv <- reactive({
+        list <- datastd()
+        data <- cbind(mz = list$mz[list$stdmassindex], rt = list$rt[list$stdmassindex], list$data[list$stdmassindex,])
+        data <- t(cbind(group = t(cbind(mz = 'mz',rt = 'rt',t(list$group))), t(data)))
+        return(data)
+})
+# show the download
+downloadHandler('globalstd.csv', content = function(file) {
+                data <- stdcsv()
+                write.csv(data, file)
+        })
+```
+
+### Show the retention time groups
+
+```{r plotrtg, echo=FALSE}
+renderPlot({
+        list <- datastd()
+        if(!is.null(list)){
+                if(sum(list$pairedindex)>0){
+                plotrtg(list)
+                }else{
+                plot(1,1,type = 'n')
+                
+        }
+        }else{
+                plot(1,1,type = 'n')
+                
+        }
+})
+```
+
+### Show the Global in-group PMDs distribution
+
+```{r plotpaired,echo=FALSE}
+renderPlot({
+        list <- datastd()
+        if(!is.null(list)){
+                if(sum(list$pairedindex)>0){
+                plotpaired(list) 
+                }else{
+                plot(1,1,type = 'n')
+                
+        }
+                
+        }else{
+                plot(1,1,type = 'n')
+                
+        }
+})
+```
+
+### Show the Global cross-group PMDs distribution
+
+```{r plotstdsda,echo=F}
+renderPlot({
+        list <- datastd()
+        if(!is.null(list)){
+                if(sum(list$pairedindex)>0){
+                plotstdsda(list)
+                }else{
+                plot(1,1,type = 'n')
+                
+        }
+                
+        }else{
+                plot(1,1,type = 'n')
+                
+        }
+})
+```
+
+### Show the globalstd peaks and all peaks
+
+```{r plotstd,echo=FALSE}
+renderPlot({
+        list <- datastd()
+        if(!is.null(list)){
+                if(sum(list$pairedindex)>0){
+                plotstd(list)
+                }else{
+                plot(1,1,type = 'n')
+                
+        }
+                
+        }else{
+                plot(1,1,type = 'n')
+                
+        }
+})
+```
