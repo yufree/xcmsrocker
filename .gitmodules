@@ -1,0 +1,15 @@
+[submodule "shiny_xcms/apps/JournalTone"]
+	path = shiny_xcms/apps/JournalTone
+	url = git@github.com:yufree/journaltone.git
+[submodule "shiny_xcms/apps/MIR"]
+	path = shiny_xcms/apps/MIR
+	url = git@github.com:yufree/MIR.git
+[submodule "shiny_xcms/apps/realism"]
+	path = shiny_xcms/apps/realism
+	url = git@github.com:yufree/realism.git
+[submodule "shiny_xcms/apps/shinyBDE"]
+	path = shiny_xcms/apps/shinyBDE
+	url = git@github.com:yufree/shinyBDE.git
+[submodule "shiny_xcms/apps/spicpms"]
+	path = shiny_xcms/apps/spicpms
+	url = git@github.com:yufree/spicpms.git
