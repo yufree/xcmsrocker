@@ -11,7 +11,6 @@ RUN apt-get update \
     yufree/x13cms \
     nathaniel-mahieu/warpgroup \
     yufree/mz.unity \
-    pattilab/credential \
     cbroeckl/RAMClustR \
     rwehrens/BatchCorrMetabolomics \
     yufree/decoMS2 \
