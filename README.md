@@ -80,7 +80,7 @@ Same software is not the end and detailed workflow would be the key to reproduci
 ### Peaks identification
 
 - [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214) MS1 annotation 
-- [credential](http://pubs.acs.org/doi/abs/10.1021/ac503092d) A Platform to Benchmark and Optimize Untargeted Metabolomic Methods
+- [credential](http://pubs.acs.org/doi/abs/10.1021/ac503092d) A Platform to Benchmark and Optimize Untargeted Metabolomic Methods (install error)
 - [MetFragr](http://ipb-halle.github.io/MetFrag/projects/metfragr/) The R package enables functionalities from the MetFrag Commandline tool to be used within the R programming language.
 
 ### Statistical analysis
