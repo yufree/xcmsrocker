@@ -16,7 +16,6 @@ RUN apt-get update \
     yufree/decoMS2 \
     KechrisLab/MSPrep \
     yufree/MetDIA \
-    yufree/SWATHtoMRM \
     yufree/MetaboDIA \
     WMBEdmands/MetMSLine \
     WMBEdmands/compMS2Miner \
