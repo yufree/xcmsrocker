@@ -18,8 +18,8 @@ RUN apt-get update \
     yufree/MetDIA \
     WMBEdmands/MetMSLine \
     WMBEdmands/compMS2Miner \
-    yufree/rmwf \
     c-ruttkies/MetFragR/metfRag \
     yufree/rfigshare \
     yufree/enviGCMS \
     yufree/pmd \
+    yufree/rmwf \
