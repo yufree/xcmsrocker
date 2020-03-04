@@ -19,3 +19,5 @@ RUN apt-get update \
     tcltk2 \
     ROCS \
     plotly \
+    caret \ 
+    caretEnsemble \
