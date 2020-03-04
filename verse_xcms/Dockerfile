@@ -22,4 +22,6 @@ RUN apt-get update \
     yufree/rfigshare \
     yufree/enviGCMS \
     yufree/pmd \
+    Aurametrix/R/GRAPH/MetabNet \
+    kuppal2/xMWAS \
     yufree/rmwf \
