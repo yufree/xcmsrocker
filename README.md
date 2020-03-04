@@ -16,6 +16,10 @@ However, I suggest this R-based image for starter and hopefully we could see a J
 
 Same software is not the end and detailed workflow would be the key to reproducible research in metabolomics studies. Xcmsrocker is a linux based docker image to simply the usage of R based metabolomics software. It includes multiple mainstream R packages used in metabolomics study with RStduio as IDE. Such image could be easy deployed on single machine or clusters on the go. To make the users do the right thing for metabolomics studies, rmwf package is attached in this image to provide detailed workflow template( File - New File - R Markdown - From Template - Select template with {rmwf}) from different research groups and facilitate the users to make metabolomics data analysis and/or comparison on the gaints' shoulder.
 
+Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-book/) on R package for metabolomics.
+
+[patRoon](https://github.com/rickhelmus/patRoon) is a similar project.
+
 [![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
 ## Usage
@@ -80,11 +84,17 @@ Same software is not the end and detailed workflow would be the key to reproduci
 - [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214) MS1 annotation 
 - [MetFragr](http://ipb-halle.github.io/MetFrag/projects/metfragr/) The R package enables functionalities from the MetFrag Commandline tool to be used within the R programming language.
 
+### Omics
+
+- [xMWAS](https://www.ncbi.nlm.nih.gov/pubmed/29069296) a data-driven integration and differential network analysis tool.
+- [MetabNet](https://www.ncbi.nlm.nih.gov/pubmed/26125020) An R Package for Metabolic Association Analysis of High-Resolution Metabolomics Data.
+
 ### Statistical analysis
 
 - [MetMSLine](https://github.com/WMBEdmands/MetMSLine) R functions for automation of biomarker discovery based on processing downstream of peak picking softwares
 - [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst
 - [caret](http://topepo.github.io/caret/index.html) general machine learning workflow for more than 200 models
+- [caretEnsemble](https://cran.r-project.org/web/packages/caretEnsemble/index.html) Functions for creating ensembles of caret models
 
 ### Chemometrics
 
