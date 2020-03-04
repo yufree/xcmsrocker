@@ -14,3 +14,5 @@ RUN apt-get update \
     radix \
     citr \
     scifigure \
+    pagedown \
+    rolldown \
