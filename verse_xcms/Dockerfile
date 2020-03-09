@@ -19,7 +19,7 @@ RUN apt-get update \
     WMBEdmands/MetMSLine \
     WMBEdmands/compMS2Miner \
     c-ruttkies/MetFragR/metfRag \
-    yufree/rfigshare \
+    ropensci/rfigshare \
     yufree/enviGCMS \
     yufree/pmd \
     Aurametrix/R/GRAPH/MetabNet \
