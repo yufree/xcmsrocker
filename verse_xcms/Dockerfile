@@ -5,10 +5,6 @@ RUN apt-get update \
     omegahat/XMLSchema \
     cran/SSOAP \
     xia-lab/MetaboAnalystR \
-    yufree/apLCMS \
-    yufree/xMSanalyzer \
-    yufree/xMSannotator \
-    yufree/x13cms \
     nathaniel-mahieu/warpgroup \
     yufree/mz.unity \
     cbroeckl/RAMClustR \
@@ -20,8 +16,12 @@ RUN apt-get update \
     WMBEdmands/compMS2Miner \
     c-ruttkies/MetFragR/metfRag \
     ropensci/rfigshare \
-    yufree/enviGCMS \
-    yufree/pmd \
     Aurametrix/R/GRAPH/MetabNet \
     kuppal2/xMWAS \
+    yufree/apLCMS \
+    yufree/xMSanalyzer \
+    yufree/xMSannotator \
+    yufree/x13cms \
+    yufree/enviGCMS \
+    yufree/pmd \
     yufree/rmwf \
