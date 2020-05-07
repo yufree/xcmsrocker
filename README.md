@@ -20,6 +20,8 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 
 [patRoon](https://github.com/rickhelmus/patRoon) is a similar project.
 
+[MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst and they maintain [docker image](https://github.com/xia-lab/MetaboAnalyst_Docker) officially.
+
 [![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
 ## Usage
@@ -92,7 +94,6 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 ### Statistical analysis
 
 - [MetMSLine](https://github.com/WMBEdmands/MetMSLine) R functions for automation of biomarker discovery based on processing downstream of peak picking softwares
-- [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst
 - [caret](http://topepo.github.io/caret/index.html) general machine learning workflow for more than 200 models
 - [caretEnsemble](https://cran.r-project.org/web/packages/caretEnsemble/index.html) Functions for creating ensembles of caret models
 
@@ -105,7 +106,6 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 ### Reproducible research
 
 - [Risa](https://bioconductor.org/packages/release/bioc/html/Risa.html) Converting experimental metadata from ISA-tab into Bioconductor data structures
-
 - [rmwf](https://github.com/yufree/rmwf) Reproducilble Metabolomics WorkFlow(RMWF) is a R package for xcmsrocker. It will show the workflow templates and demo data for different R-based metabolomics software. 
 
 ## Links
