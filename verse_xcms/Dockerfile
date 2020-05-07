@@ -4,7 +4,6 @@ RUN apt-get update \
   && installGithub.r \
     omegahat/XMLSchema \
     cran/SSOAP \
-    xia-lab/MetaboAnalystR \
     nathaniel-mahieu/warpgroup \
     yufree/mz.unity \
     cbroeckl/RAMClustR \
