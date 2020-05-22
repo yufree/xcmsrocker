@@ -96,6 +96,8 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 - [MetMSLine](https://github.com/WMBEdmands/MetMSLine) R functions for automation of biomarker discovery based on processing downstream of peak picking softwares
 - [caret](http://topepo.github.io/caret/index.html) general machine learning workflow for more than 200 models
 - [caretEnsemble](https://cran.r-project.org/web/packages/caretEnsemble/index.html) Functions for creating ensembles of caret models
+- [pROC](https://cran.r-project.org/web/packages/pROC/index.html) Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
+- [gWQS](https://cran.r-project.org/web/packages/gWQS/index.html) Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial, multinomial and count outcomes.
 
 ### Chemometrics
 

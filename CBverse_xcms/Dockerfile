@@ -21,3 +21,6 @@ RUN apt-get update \
     plotly \
     caret \ 
     caretEnsemble \
+    pROC \
+    gWQS \
+    
