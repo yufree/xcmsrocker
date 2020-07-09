@@ -75,6 +75,7 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 - [Rdisop](https://bioconductor.org/packages/release/bioc/html/Rdisop.html) Decomposition of Isotopic Patterns
 - [InterpretMSSpectrum](https://pubs.acs.org/doi/10.1021/acs.analchem.6b02743) Annotate and interpret deconvoluted mass spectra (mass*intensity pairs) from high resolution mass spectrometry devices
 - [nontarget](https://cran.r-project.org/web/packages/nontarget/index.html) Detecting Isotope, Adduct and Homologue Relations in LC-MS Data
+- [classyfireR](https://cran.r-project.org/web/packages/classyfireR/index.html) Retrieve existing entity classifications from SMILES or InChls. 
 
 ### Batch correction
 

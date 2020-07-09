@@ -23,4 +23,4 @@ RUN apt-get update \
     caretEnsemble \
     pROC \
     gWQS \
-    
+    classyfireR \
