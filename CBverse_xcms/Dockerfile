@@ -24,3 +24,5 @@ RUN apt-get update \
     pROC \
     gWQS \
     classyfireR \
+    enviGCMS \
+    pmd \
