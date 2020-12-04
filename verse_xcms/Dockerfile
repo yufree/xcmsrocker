@@ -8,6 +8,7 @@ RUN apt-get update \
     yufree/mz.unity \
     cbroeckl/RAMClustR \
     rwehrens/BatchCorrMetabolomics \
+    cran/ChemometricsWithR \
     yufree/decoMS2 \
     KechrisLab/MSPrep \
     yufree/MetDIA \
