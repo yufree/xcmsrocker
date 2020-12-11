@@ -7,8 +7,8 @@ RUN apt-get update \
     nathaniel-mahieu/warpgroup \
     yufree/mz.unity \
     cbroeckl/RAMClustR \
-    rwehrens/BatchCorrMetabolomics \
     cran/ChemometricsWithR \
+    rwehrens/BatchCorrMetabolomics \
     yufree/decoMS2 \
     KechrisLab/MSPrep \
     yufree/MetDIA \
