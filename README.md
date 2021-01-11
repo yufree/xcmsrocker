@@ -10,7 +10,7 @@ For C#, you could select [Prime](http://prime.psc.riken.jp/).
 
 For Matlab, you could select [Bioinformatics Toolbox](https://www.nature.com/protocolexchange/protocols/4347#).
 
-For python, you could select [emzed](http://emzed.ethz.ch/index.html).
+For python, you could select [emzed](http://emzed.ethz.ch/index.html) or [TinyMS](https://github.com/griquelme/tidyms).
 
 However, I suggest this R-based image for starter and hopefully we could see a Julia platform in the future. 
 
