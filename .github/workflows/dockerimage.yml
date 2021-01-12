@@ -1,9 +1,6 @@
 name: Docker Image CI & Publish Docker image
 
 on: 
-  push:
-    branches:
-      - main
   release:
     types: [published]
 jobs:
@@ -22,7 +19,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
-        repository: yufree/xcmsrocker/xcmsrocker
+        repository: yufree/xcmsrocker/pmdda
         tag_with_ref: true
 
 
