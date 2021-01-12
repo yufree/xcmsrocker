@@ -26,7 +26,7 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 
 ## Usage
 
-1. Install [Docker](https://www.docker.com/)
+1. Install [Docker](https://www.docker.com/) and run Docker in your system
 
 2. Pull the Rocker image `docker pull yufree/xcmsrocker:latest`
 
@@ -36,7 +36,16 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 
 5. Default user name is `rstudio` and password is `xcmsrocker`
 
-6. Enjoy your data analysis!
+6. Enjoy your data analysis! If you perferred to try PMDDA workflow, do the following step in RStudio:
+
+- Go to File - New File - Rmarkdown... 
+- Click 'From Template'
+- Choose 'PMDDA Metabolomics Workflow' and click OK
+- You will see a Rmd file with PMDDA data analysis script.
+
+Step 2-6 could be visualized:
+
+![pmdda](https://raw.githubusercontent.com/yufree/yufree.cn/master/static/images/pmdda.gif)
 
 ## Packages
 
