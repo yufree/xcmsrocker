@@ -26,3 +26,4 @@ RUN apt-get update \
     classyfireR \
     enviGCMS \
     pmd \
+    venn \
