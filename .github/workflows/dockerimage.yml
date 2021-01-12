@@ -1,14 +1,28 @@
-name: Docker Image CI
+name: Docker Image CI & Publish Docker image
 
-on: [push]
-
+on: 
+  push:
+    branches:
+      - main
+  release:
+    types: [published]
 jobs:
-
-  build:
- 
+  build: 
     runs-on: ubuntu-latest
  
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: docker build . --file verse_xcms/Dockerfile --tag my-image-name:$(date +%s)
+    - name: Check out the repo
+      uses: actions/checkout@v2
+    - name: Push to GitHub Packages
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: yufree/xcmsrocker/xcmsrocker
+        tag_with_ref: true
+
+
