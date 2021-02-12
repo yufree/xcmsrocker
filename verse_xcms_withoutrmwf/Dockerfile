@@ -1,4 +1,3 @@
-FROM yufree/xcms:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
@@ -7,6 +6,7 @@ RUN apt-get update \
     nathaniel-mahieu/warpgroup \
     yufree/mz.unity \
     cbroeckl/RAMClustR \
+    cran/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
     yufree/decoMS2 \
     KechrisLab/MSPrep \
