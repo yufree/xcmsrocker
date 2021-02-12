@@ -1,3 +1,4 @@
+FROM yufree/xcms:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
