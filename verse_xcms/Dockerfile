@@ -1,4 +1,4 @@
-FROM yufree/xcmsrockertemp:latest
+FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
