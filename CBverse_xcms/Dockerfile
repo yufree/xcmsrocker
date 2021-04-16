@@ -23,7 +23,6 @@ RUN apt-get update \
     caretEnsemble \
     pROC \
     gWQS \
-    classyfireR \
     enviGCMS \
     pmd \
-    venn \
+    UpSetR \
