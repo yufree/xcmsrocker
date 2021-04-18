@@ -22,7 +22,7 @@ RUN apt-get update \
     yufree/xMSanalyzer \
     yufree/xMSannotator \
     yufree/x13cms \
-    aberHRML/classyfireR 
+    aberHRML/classyfireR \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \
