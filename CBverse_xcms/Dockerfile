@@ -26,3 +26,5 @@ RUN apt-get update \
     enviGCMS \
     pmd \
     UpSetR \
+    multcomp \
+    

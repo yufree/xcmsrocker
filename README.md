@@ -109,6 +109,7 @@ Step 2-6 could be visualized:
 - [pROC](https://cran.r-project.org/web/packages/pROC/index.html) Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
 - [gWQS](https://cran.r-project.org/web/packages/gWQS/index.html) Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial, multinomial and count outcomes.
 - [UpSetR](https://cran.r-project.org/web/packages/UpSetR/index.html) A More Scalable Alternative to Venn and Euler Diagrams for Visualizing Intersecting Sets
+- [multcomp](https://cran.r-project.org/web/packages/multcomp/index.html) Simultaneous Inference in General Parametric Models to solve multiple comparisons issues
 
 ### Chemometrics
 
