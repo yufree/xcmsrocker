@@ -9,7 +9,7 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-        steps:
+    steps:
     
       - name: Check Out Repo 
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./CBxcmsrocker
+          context: ./CBverse_xcms
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcms:latest
 
