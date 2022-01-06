@@ -24,7 +24,7 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 
 [![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
-## Usage
+## Workflow template usage
 
 1. Install [Docker](https://www.docker.com/) and run Docker in your system
 
