@@ -52,14 +52,12 @@ Step 2-6 could be visualized:
 ### Peak picking
 
 - [xcms](https://bioconductor.org/packages/release/bioc/html/xcms.html) Generate peaks list/EIC/diffreport
-- [apLCMS](https://sourceforge.net/projects/aplcms/) Generate peaks list
 - [x13cms](http://pubs.acs.org/doi/10.1021/ac403384n) global tracking of isotopic labels in untargeted metabolomics
 
 ### Improved Peak picking
 
 - [IPO](https://bioconductor.org/packages/release/bioc/html/IPO.html) For xcms peak picking optimazation
 - [Autotuner](https://bioconductor.org/packages/devel/bioc/vignettes/Autotuner/inst/doc/Autotuner.html) Automated parameter selection for untargeted metabolomics data processing
-- [warpgroup](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv564) increase the precision for xcms peak picking and retention time correction
 - [xMSanalyzer](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-15) improved Peak picking for xcms and apLCMS
 
 #### For MS/MS

@@ -4,7 +4,6 @@ RUN apt-get update \
   && installGithub.r \
     omegahat/XMLSchema \
     cran/SSOAP \
-    nathaniel-mahieu/warpgroup \
     yufree/mz.unity \
     cbroeckl/RAMClustR \
     cran/ChemometricsWithR \
@@ -18,7 +17,6 @@ RUN apt-get update \
     ropensci/rfigshare \
     Aurametrix/R/GRAPH/MetabNet \
     kuppal2/xMWAS \
-    yufree/apLCMS \
     yufree/xMSanalyzer \
     yufree/xMSannotator \
     yufree/x13cms \
