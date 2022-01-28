@@ -60,6 +60,16 @@ Step 2-6 could be visualized:
 - [Autotuner](https://bioconductor.org/packages/devel/bioc/vignettes/Autotuner/inst/doc/Autotuner.html) Automated parameter selection for untargeted metabolomics data processing
 - [xMSanalyzer](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-15) improved Peak picking for xcms and apLCMS
 
+#### Comparison
+
+- IPO/Autotunner/default setting of xcms
+
+- Template
+
+```r
+rmarkdown::draft("peakpicking.Rmd", template = "peakpicking", package = "rmwf")
+```
+
 #### For MS/MS
 
 - [decoMS2](https://pubs.acs.org/doi/10.1021/ac400751j) An Untargeted Metabolomic Workflow to Improve Structural Characterization of Metabolites
@@ -84,10 +94,32 @@ Step 2-6 could be visualized:
 - [nontarget](https://cran.r-project.org/web/packages/nontarget/index.html) Detecting Isotope, Adduct and Homologue Relations in LC-MS Data
 - [classyfireR](https://cran.r-project.org/web/packages/classyfireR/index.html) Retrieve existing entity classifications from SMILES or InChls. 
 
+#### Comparison
+
+- CAMERA, RAMClustR, pmd, xMSannotator
+
+- Template
+
+```r
+rmarkdown::draft("annotation.Rmd", template = "annotation", package = "rmwf")
+```
+
 ### Batch correction
 
 - [Msprep](https://github.com/KechrisLab/MSPrep) Summarization, normalization and diagnostics for processing of mass spectrometry–based metabolomic data by Median, Quantile, Cross-Contribution Compensating Multiple Standard Normalization (CRMN), Surrogate Variable Analysis (SVA) and Removal of Unwanted Variation (RUV). 
 - [BatchCorrMetabolomics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4796354/) Improved batch correction in untargeted MS-based metabolomics by pool QC.
+
+#### Comparison
+
+- Data with QCs/run order/batch information: loess, spline, ComBat
+
+- Data without QCs/run order/batch information: normalize to zero mean and unit variance,normalize to zero mean and squared root variance,normalize to zero mean but variance/SE,vast scaling,level scaling,total sum row,Median row,Mean row,PQN,VSN,Quantile,lumi rsn,Limma CyclicLoess,AFFA CUBICSpline,SVA,iSVA,PCR
+
+- Template
+
+```r
+rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmwf")
+```
 
 ### Peaks identification
 
