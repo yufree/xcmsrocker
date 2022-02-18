@@ -24,3 +24,4 @@ RUN apt-get update \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \
+    tidymass/tidymass \
