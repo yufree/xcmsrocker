@@ -22,6 +22,10 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 
 [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst and they maintain [docker image](https://github.com/xia-lab/MetaboAnalyst_Docker) officially.
 
+## Reference
+
+- Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. https://doi.org/10.1186/s13321-022-00586-8
+
 [![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
 ## Workflow template usage
