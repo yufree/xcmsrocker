@@ -25,5 +25,4 @@ RUN apt-get update \
     yufree/pmd \
     yufree/rmwf \
     tidymass/tidymass \
-    RforMassSpectrometry/RforMassSpectrometry \
     

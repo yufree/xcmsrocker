@@ -156,7 +156,6 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 -   [Risa](https://bioconductor.org/packages/release/bioc/html/Risa.html) Converting experimental metadata from ISA-tab into Bioconductor data structures
 -   [rmwf](https://github.com/yufree/rmwf) Reproducilble Metabolomics WorkFlow(RMWF) is a R package for xcmsrocker. It will show the workflow templates and demo data for different R-based metabolomics software.
 -   [tinymass](https://github.com/tidymass/tidymass) Tidymass is a comprehensive computational framework for MS-based untargeted metabolomics data processing and analysis, including raw data processing (peak detecting), data cleaning (missing value processing, data normalization, and integration), statistical analysis, metabolite annotation, and biological function mining (pathway enrichment, feature-based metabolic module analysis). 
--   [RforMassSpectrometry](https://www.rformassspectrometry.org/) RforMassSpectrometry is a meta-package that is used to manage the R for Mass Spectrometry suite and core package versions in a coherent way. 
 
 ## Links
 
