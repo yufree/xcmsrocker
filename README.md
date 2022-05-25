@@ -1,32 +1,14 @@
-# xcmsrocker
+# xcmsrocker: Rocker image for metabolomics data analysis
 
-Rocker image for metabolomics data analysis
+Software and data is required for reproducible research. However, detailed workflows connecting software and data would be the key to reproducible research in metabolomics studies. Xcmsrocker is a linux based docker image to host the workflow of R based metabolomics software. It includes multiple mainstream R packages used in metabolomics study with RStduio as IDE. Such image could be deployed on single machine or clusters on the go. 
 
-For Java, you could select [MSDK](https://msdk.github.io/).
+Besides, rmwf package is attached in this image to provide detailed workflow template( File - New File - R Markdown - From Template - Select template with {rmwf}) and facilitate the users to perform metabolomics data analysis and/or comparisons. Specifically, paired mass distances dependent analysis (PMDDA) and reactomics analysis templates could be found here.
 
-For C/C++, you could select [openms](https://www.openms.de/) or [ProteoWizard](http://proteowizard.sourceforge.net/).
-
-For C#, you could select [Prime](http://prime.psc.riken.jp/).
-
-For Matlab, you could select [Bioinformatics Toolbox](https://www.nature.com/protocolexchange/protocols/4347#).
-
-For python, you could select [emzed](http://emzed.ethz.ch/index.html) or [TinyMS](https://github.com/griquelme/tidyms).
-
-However, I suggest this R-based image for starter and hopefully we could see a Julia platform in the future.
-
-Software and data is required for reproducible research. However, detailed workflows connecting software and data would be the key to reproducible research in metabolomics studies. Xcmsrocker is a linux based docker image to host the workflow of R based metabolomics software. It includes multiple mainstream R packages used in metabolomics study with RStduio as IDE. Such image could be deployed on single machine or clusters on the go. Besides, rmwf package is attached in this image to provide detailed workflow template( File - New File - R Markdown - From Template - Select template with {rmwf}) and facilitate the users to perform metabolomics data analysis and/or comparisons. Specifically, paired mass distances dependant analysis (PMDDA) and reactomics analysis templeates could be found here.
-
-Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-book/) on R package for metabolomics.
-
-[patRoon](https://github.com/rickhelmus/patRoon) is a similar project.
-
-[MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst and they maintain [docker image](https://github.com/xia-lab/MetaboAnalyst_Docker) officially.
+You are welcome to contribute your new algorithm/software/workflow! Just PR!
 
 ## Reference
 
 - Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. https://doi.org/10.1186/s13321-022-00586-8
-
-[![](https://images.microbadger.com/badges/image/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/yufree/xcmsrocker.svg)](https://microbadger.com/images/yufree/xcmsrocker "Get your own version badge on microbadger.com")
 
 ## Workflow template usage
 
@@ -155,9 +137,32 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 
 -   [Risa](https://bioconductor.org/packages/release/bioc/html/Risa.html) Converting experimental metadata from ISA-tab into Bioconductor data structures
 -   [rmwf](https://github.com/yufree/rmwf) Reproducilble Metabolomics WorkFlow(RMWF) is a R package for xcmsrocker. It will show the workflow templates and demo data for different R-based metabolomics software.
--   [tinymass](https://github.com/tidymass/tidymass) Tidymass is a comprehensive computational framework for MS-based untargeted metabolomics data processing and analysis, including raw data processing (peak detecting), data cleaning (missing value processing, data normalization, and integration), statistical analysis, metabolite annotation, and biological function mining (pathway enrichment, feature-based metabolic module analysis). 
 
-## Links
+## Similar projects
+
+- For Java, you could select [MSDK](https://msdk.github.io/).
+
+- For C/C++, you could select [OpenMS](https://www.openms.de/) or [ProteoWizard](http://proteowizard.sourceforge.net/).
+
+- For C#, you could select [Prime](http://prime.psc.riken.jp/).
+
+- For Matlab, you could select [Bioinformatics Toolbox](https://www.nature.com/protocolexchange/protocols/4347#).
+
+- For python, you could select [emzed](http://emzed.ethz.ch/index.html) or [TinyMS](https://github.com/griquelme/tidyms)
+
+### R 
+
+Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-book/) on R package for metabolomics.
+
+- [patRoon](https://github.com/rickhelmus/patRoon) open source software platform for environmental mass spectrometry based non-target screening
+
+- [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst and they maintain [docker image](https://github.com/xia-lab/MetaboAnalyst_Docker) officially.
+
+- [tidymass](https://www.tidymass.org/) the whole workflow of data processing and analysis for LC-MS-based untargeted metabolomics using tidyverse principles
+
+- [R for Mass Spectrometry](https://www.rformassspectrometry.org/) R software for the analysis and interpretation of high throughput mass spectrometry assays.
+
+## Useful Links
 
 -   [Use docker to package your metabolomics study](https://yufree.cn/en/2018/01/17/use-docker-to-package-your-metabolomics-study/)
 -   [Docker Hub](https://hub.docker.com/r/yufree/xcmsrocker/)
