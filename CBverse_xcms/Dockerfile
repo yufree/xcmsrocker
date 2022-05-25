@@ -28,6 +28,5 @@ RUN apt-get update \
     UpSetR \
     multcomp \
     isva \ 
-    h2o \
-    
+    h2o
   
