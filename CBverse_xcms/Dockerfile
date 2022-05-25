@@ -12,7 +12,6 @@ RUN apt-get update \
     tk8.6-dev \
   && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','Autotuner','lumi'))" \
   && install2.r --error \
-    nontarget \
     ChemoSpec \
     webchem \
     InterpretMSSpectrum \
