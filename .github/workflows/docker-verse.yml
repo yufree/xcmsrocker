@@ -1,4 +1,4 @@
-name: xcmsrocker Image CI
+name: Docker xcmsrocker
 
 on:
   push:
