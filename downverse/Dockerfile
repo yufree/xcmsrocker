@@ -19,3 +19,4 @@ RUN apt-get update \
     scifigure \
     pagedown \
     rolldown \
+    officedown \
