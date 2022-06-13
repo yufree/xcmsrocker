@@ -11,8 +11,6 @@ RUN apt-get update \
     yufree/decoMS2 \
     KechrisLab/MSPrep \
     yufree/MetDIA \
-    WMBEdmands/MetMSLine \
-    WMBEdmands/compMS2Miner \
     c-ruttkies/MetFragR/metfRag \
     ropensci/rfigshare \
     Aurametrix/R/GRAPH/MetabNet \
