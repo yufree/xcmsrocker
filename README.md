@@ -8,7 +8,7 @@ If you preferred to perform Python code within RStudio through reticulate packag
 
 You are welcome to contribute your new algorithm/software/workflow! Just PR!
 
-Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9ACdgEHwnYoD73ZmRSg/edit?usp=sharing) to check the poster for ASMS 2022.
+Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9ACdgEHwnYoD73ZmRSg/edit?usp=sharing) and relate [video](https://youtu.be/bhuyYmkjpO4) to check the poster for ASMS 2022.
 
 ## Reference
 
