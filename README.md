@@ -8,6 +8,8 @@ If you preferred to perform Python code within RStudio through reticulate packag
 
 You are welcome to contribute your new algorithm/software/workflow! Just PR!
 
+Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9ACdgEHwnYoD73ZmRSg/edit?usp=sharing) to check the poster for ASMS 2022.
+
 ## Reference
 
 - Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. https://doi.org/10.1186/s13321-022-00586-8
