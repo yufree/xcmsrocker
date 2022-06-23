@@ -2,6 +2,7 @@ FROM yufree/xcms:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
+    KujawinskiLaboratory/Autotuner \
     omegahat/XMLSchema \
     cran/SSOAP \
     yufree/mz.unity \
@@ -19,6 +20,7 @@ RUN apt-get update \
     yufree/xMSannotator \
     yufree/x13cms \
     aberHRML/classyfireR \
+    RforMassSpectrometry/MetaboAnnotation \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \

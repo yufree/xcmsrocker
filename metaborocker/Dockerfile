@@ -32,7 +32,7 @@ RUN apt-get update \
     ## tcl tk support
     tcl8.6-dev \
     tk8.6-dev \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','Autotuner','lumi'))" \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi'))" \
   && install2.r --error \
     ChemoSpec \
     webchem \
@@ -49,6 +49,7 @@ RUN apt-get update \
     isva \ 
     h2o \
   && installGithub.r \
+    KujawinskiLaboratory/Autotuner \
     omegahat/XMLSchema \
     cran/SSOAP \
     yufree/mz.unity \
@@ -66,6 +67,7 @@ RUN apt-get update \
     yufree/xMSannotator \
     yufree/x13cms \
     aberHRML/classyfireR \
+    RforMassSpectrometry/MetaboAnnotation \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \

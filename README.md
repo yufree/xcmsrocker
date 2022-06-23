@@ -111,6 +111,7 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 
 ### Peaks identification
 
+-   [MetaboAnnotation](https://github.com/rformassspectrometry/MetaboAnnotation) MS2 annotation
 -   [xMSannotator](http://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b01214) MS1 annotation
 -   [MetFragr](http://ipb-halle.github.io/MetFrag/projects/metfragr/) The R package enables functionalities from the MetFrag Commandline tool to be used within the R programming language.
 
