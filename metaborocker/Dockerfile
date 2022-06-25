@@ -32,7 +32,7 @@ RUN apt-get update \
     ## tcl tk support
     tcl8.6-dev \
     tk8.6-dev \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi'))" \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation'))" \
   && install2.r --error \
     ChemoSpec \
     webchem \
@@ -52,11 +52,9 @@ RUN apt-get update \
     KujawinskiLaboratory/Autotuner \
     omegahat/XMLSchema \
     cran/SSOAP \
-    yufree/mz.unity \
     cbroeckl/RAMClustR \
     cran/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
-    yufree/decoMS2 \
     KechrisLab/MSPrep \
     yufree/MetDIA \
     c-ruttkies/MetFragR/metfRag \
@@ -66,8 +64,6 @@ RUN apt-get update \
     yufree/xMSannotator \
     yufree/x13cms \
     aberHRML/classyfireR \
-    RforMassSpectrometry/CompoundDb \
-    RforMassSpectrometry/MetaboAnnotation \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \

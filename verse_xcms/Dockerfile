@@ -5,11 +5,9 @@ RUN apt-get update \
     KujawinskiLaboratory/Autotuner \
     omegahat/XMLSchema \
     cran/SSOAP \
-    yufree/mz.unity \
     cbroeckl/RAMClustR \
     cran/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
-    yufree/decoMS2 \
     KechrisLab/MSPrep \
     yufree/MetDIA \
     c-ruttkies/MetFragR/metfRag \
@@ -19,8 +17,6 @@ RUN apt-get update \
     yufree/xMSannotator \
     yufree/x13cms \
     aberHRML/classyfireR \
-    RforMassSpectrometry/CompoundDb \
-    RforMassSpectrometry/MetaboAnnotation \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \
