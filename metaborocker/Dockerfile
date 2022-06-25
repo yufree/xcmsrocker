@@ -67,6 +67,7 @@ RUN apt-get update \
     yufree/xMSannotator \
     yufree/x13cms \
     aberHRML/classyfireR \
+    RforMassSpectrometry/CompoundDb \
     RforMassSpectrometry/MetaboAnnotation \
     yufree/enviGCMS \
     yufree/pmd \
