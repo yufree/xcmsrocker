@@ -16,7 +16,6 @@ RUN apt-get update \
     ropensci/rfigshare \
     Aurametrix/R/GRAPH/MetabNet \
     kuppal2/xMWAS \
-    yufree/xMSanalyzer \
     yufree/xMSannotator \
     yufree/x13cms \
     aberHRML/classyfireR \

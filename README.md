@@ -48,7 +48,6 @@ Step 2-6 could be visualized:
 
 -   [IPO](https://bioconductor.org/packages/release/bioc/html/IPO.html) For xcms peak picking optimazation
 -   [Autotuner](https://bioconductor.org/packages/devel/bioc/vignettes/Autotuner/inst/doc/Autotuner.html) Automated parameter selection for untargeted metabolomics data processing
--   [xMSanalyzer](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-15) improved Peak picking for xcms and apLCMS
 
 #### Comparison
 
