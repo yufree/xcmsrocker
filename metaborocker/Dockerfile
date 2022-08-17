@@ -1,4 +1,4 @@
-FROM rocker/verse:latest
+FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 ENV CUDA_VERSION=10.1.243
@@ -22,51 +22,6 @@ RUN /rocker_scripts/install_cuda-10.1.sh
 RUN /rocker_scripts/config_R_cuda.sh
 RUN /rocker_scripts/install_python.sh
 RUN /rocker_scripts/install_tensorflow.sh
-
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    libnetcdf-dev \
-    ## rgl support
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    ## tcl tk support
-    tcl8.6-dev \
-    tk8.6-dev \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter'))" \
-  && install2.r --error \
-    ChemoSpec \
-    webchem \
-    InterpretMSSpectrum \
-    tcltk2 \
-    ROCS \
-    plotly \
-    caret \ 
-    caretEnsemble \
-    pROC \
-    gWQS \
-    UpSetR \
-    multcomp \
-    isva \ 
-    h2o \
-  && installGithub.r \
-    KujawinskiLaboratory/Autotuner \
-    omegahat/XMLSchema \
-    cran/SSOAP \
-    cbroeckl/RAMClustR \
-    cran/ChemometricsWithR \
-    rwehrens/BatchCorrMetabolomics \
-    KechrisLab/MSPrep \
-    yufree/MetDIA \
-    c-ruttkies/MetFragR/metfRag \
-    ropensci/rfigshare \
-    Aurametrix/R/GRAPH/MetabNet \
-    kuppal2/xMWAS \
-    yufree/xMSannotator \
-    yufree/x13cms \
-    aberHRML/classyfireR \
-    yufree/enviGCMS \
-    yufree/pmd \
-    yufree/rmwf \
-    
- RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn pyopenms asari-metabolomics
+  
+RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn pyopenms asari-metabolomics
  
