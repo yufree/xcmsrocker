@@ -68,3 +68,5 @@ RUN apt-get update \
     yufree/pmd \
     yufree/rmwf \
     
+ RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn pyopenms asari-metabolomics
+ 
