@@ -17,7 +17,7 @@ ENV PATH=${PYTHON_VENV_PATH}/bin:$PATH:${CUDA_HOME}/bin:/usr/local/texlive/bin/x
 ENV S6_VERSION=v2.1.0.2
 ENV TENSORFLOW_VERSION=gpu
 ENV KERAS_VERSION=default
-ENV miniconda3_version="py39_4.12.0"
+ENV miniconda3_version="py38_4.12.0"
 ENV miniconda_bin_dir="/opt/miniconda/bin"
 ENV PATH="${PATH}:${miniconda_bin_dir}"
 
@@ -37,12 +37,16 @@ RUN curl -fsSLO https://repo.anaconda.com/miniconda/Miniconda3-${miniconda3_vers
     && conda --version
     
 RUN conda init bash \
-    && conda create -n pyopenms python=3.8 \
-    && conda install -c bioconda pyopenms
+    && conda create -n pyopenms \
+    && conda activate pyopenms \
+    && conda install -c bioconda pyopenms \
+    && conda deactivate
 
 RUN conda init bash \
     && conda create -n matchms \
-    && conda install -c bioconda matchms
+    && conda activate matchms \
+    && conda install -c bioconda matchms \
+    && conda deactivate
     
 RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn plotly asari-metabolomics
  
