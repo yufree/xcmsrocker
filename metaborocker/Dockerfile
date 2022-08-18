@@ -1,7 +1,7 @@
 FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
-ENV miniconda3_version="py38_4.12.0"
+ENV miniconda3_version="py38_4.13.0"
 ENV miniconda_bin_dir="/opt/miniconda/bin"
 ENV PATH="${PATH}:${miniconda_bin_dir}"
 
@@ -17,17 +17,7 @@ RUN curl -fsSLO https://repo.anaconda.com/miniconda/Miniconda3-${miniconda3_vers
     && chmod -R go-w /opt/miniconda \
     && conda --version
     
-RUN conda init bash \
-    && conda create -n pyopenms \
-    && conda activate pyopenms \
-    && conda install -c bioconda pyopenms \
-    && conda deactivate
-
-RUN conda init bash \
-    && conda create -n matchms \
-    && conda activate matchms \
-    && conda install -c bioconda matchms \
-    && conda deactivate
+RUN conda install -c bioconda pyopenms
     
 RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn plotly asari-metabolomics
  
