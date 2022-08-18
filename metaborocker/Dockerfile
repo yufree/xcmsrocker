@@ -17,11 +17,32 @@ ENV PATH=${PYTHON_VENV_PATH}/bin:$PATH:${CUDA_HOME}/bin:/usr/local/texlive/bin/x
 ENV S6_VERSION=v2.1.0.2
 ENV TENSORFLOW_VERSION=gpu
 ENV KERAS_VERSION=default
+ENV miniconda3_version="py39_4.12.0"
+ENV miniconda_bin_dir="/opt/miniconda/bin"
+ENV PATH="${PATH}:${miniconda_bin_dir}"
 
 RUN /rocker_scripts/install_cuda-10.1.sh
 RUN /rocker_scripts/config_R_cuda.sh
 RUN /rocker_scripts/install_python.sh
 RUN /rocker_scripts/install_tensorflow.sh
-  
-RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn pyopenms asari-metabolomics
+
+RUN curl -fsSLO https://repo.anaconda.com/miniconda/Miniconda3-${miniconda3_version}-Linux-x86_64.sh \
+    && bash Miniconda3-${miniconda3_version}-Linux-x86_64.sh \
+        -b \
+        -p /opt/miniconda \
+    && rm -f Miniconda3-${miniconda3_version}-Linux-x86_64.sh \
+    && useradd -u 1500 -s /bin/bash miniconda \
+    && chown -R miniconda:miniconda /opt/miniconda \
+    && chmod -R go-w /opt/miniconda \
+    && conda --version
+    
+RUN conda init bash \
+    && conda create -n pyopenms python=3.9 \
+    && conda install -c bioconda pyopenms
+
+RUN conda init bash \
+    && conda create -n matchms \
+    && conda install -c bioconda matchms
+    
+RUN pip install numpy pandas scipy matplotlib seaborn scikit-learn plotly asari-metabolomics
  
