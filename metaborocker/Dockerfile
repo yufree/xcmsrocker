@@ -37,7 +37,7 @@ RUN curl -fsSLO https://repo.anaconda.com/miniconda/Miniconda3-${miniconda3_vers
     && conda --version
     
 RUN conda init bash \
-    && conda create -n pyopenms python=3.9 \
+    && conda create -n pyopenms python=3.8 \
     && conda install -c bioconda pyopenms
 
 RUN conda init bash \
