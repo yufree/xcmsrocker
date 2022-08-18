@@ -1,7 +1,7 @@
 FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
-ENV miniconda3_version="py38_4.12.0"
+ENV miniconda3_version="py39_4.12.0"
 ENV miniconda_bin_dir="/opt/miniconda/bin"
 ENV PATH="${PATH}:${miniconda_bin_dir}"
 
@@ -19,4 +19,4 @@ RUN curl -fsSLO https://repo.anaconda.com/miniconda/Miniconda3-${miniconda3_vers
     && chmod -R go-w /opt/miniconda \
     && conda --version
     
-RUN conda install -c bioconda pyopenms
+RUN conda install -c bioconda -c conda-forge pyopenms=2.8.0
