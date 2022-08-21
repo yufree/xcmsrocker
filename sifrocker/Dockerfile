@@ -1,5 +1,6 @@
 FROM rocker/r-ver:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
+RUN /rocker_scripts/install_tidyverse.sh
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
