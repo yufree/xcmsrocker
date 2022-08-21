@@ -10,6 +10,7 @@ RUN apt-get update \
     ## tcl tk support
     tcl8.6-dev \
     tk8.6-dev \
+  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter'))" \
   && install2.r --error \
     BiocManager \
     ChemoSpec \
@@ -26,7 +27,6 @@ RUN apt-get update \
     multcomp \
     isva \ 
     h2o \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter'))" \
   && installGithub.r \
     KujawinskiLaboratory/Autotuner \
     omegahat/XMLSchema \
