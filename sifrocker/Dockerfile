@@ -1,7 +1,5 @@
 FROM rocker/r-ver:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
-RUN /rocker_scripts/install_tidyverse.sh
-RUN /rocker_scripts/install_verse.sh
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
@@ -46,4 +44,5 @@ RUN apt-get update \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \
+    lifs-tools/rmzTab-m \
     

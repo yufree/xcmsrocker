@@ -10,7 +10,7 @@ You are welcome to contribute your new algorithm/software/workflow! Just PR!
 
 Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9ACdgEHwnYoD73ZmRSg/edit?usp=sharing) and relate [video](https://youtu.be/bhuyYmkjpO4) to check the poster for ASMS 2022.
 
-## Reference
+## Citation
 
 - Yu, M., Dolios, G., Petrick, L., 2022. Reproducible untargeted metabolomics workflow for exhaustive MS2 data acquisition of MS1 features. Journal of Cheminformatics 14, 6. https://doi.org/10.1186/s13321-022-00586-8
 
@@ -137,6 +137,7 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 ### Reproducible research
 
 -   [Risa](https://bioconductor.org/packages/release/bioc/html/Risa.html) Converting experimental metadata from ISA-tab into Bioconductor data structures
+-   [rmzTab-m](https://github.com/lifs-tools/rmzTab-m) R implementation for mzTab-M
 -   [rmwf](https://github.com/yufree/rmwf) Reproducilble Metabolomics WorkFlow(RMWF) is a R package for xcmsrocker. It will show the workflow templates and demo data for different R-based metabolomics software.
 
 ## Similar projects
