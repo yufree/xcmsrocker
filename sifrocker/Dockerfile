@@ -47,4 +47,6 @@ RUN apt-get update \
     yufree/pmd \
     yufree/rmwf \
     lifs-tools/rmzTab-m \
+    pauca/rrdkit/rrdkit \
+    
     
