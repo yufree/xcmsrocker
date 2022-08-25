@@ -1,10 +1,6 @@
 FROM yufree/xcms:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    python-rdkit \
-    librdkit1 \
-    rdkit-data \
+
 RUN apt-get update \
   && installGithub.r \
     KujawinskiLaboratory/Autotuner \
@@ -26,4 +22,3 @@ RUN apt-get update \
     yufree/pmd \
     yufree/rmwf \
     lifs-tools/rmzTab-m \
-    pauca/rrdkit/rrdkit \
