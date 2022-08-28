@@ -119,5 +119,8 @@ RUN apt-get update \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \
-    lifs-tools/rmzTab-m \
+    lifs-tools/rmzTab-m
+    
+RUN /rocker_scripts/install_python.sh
+RUN pip install asari-metabolomics rdkit
     
