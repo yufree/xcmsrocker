@@ -20,13 +20,19 @@ Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9AC
 
 2.  Pull the Rocker image `docker pull yufree/xcmsrocker:latest`
 
+2.1 If you don't use RStudio and only run R script on HPC, you can use `sif` version: `docker pull yufree/xcmsrocker:sif`
+
+2.2 If you preferred running image on computer with ARM processor (M1 or Raspberry pi), you can use `arm` version: `docker pull yufree/xcmsrocker:arm`
+
 3.  Use `docker run -e PASSWORD=xcmsrocker -p 8787:8787 yufree/xcmsrocker` to start the image
+
+3.1 If you need to access your local data on current directory, you can use `docker run -v $(pwd):/home/rstudio/$USER -e PASSWORD=xcmsrocker -p 8787:8787 yufree/xcmsrocker`
 
 4.  Open the browser and visit <http://localhost:8787> or [http://[your-ip-address]:8787](http://%5Byour-ip-address%5D:8787) to power on RStudio server
 
 5.  Default user name is `rstudio` and password is `xcmsrocker`
 
-6.  Enjoy your data analysis! If you perferred to try PMDDA workflow, do the following step in RStudio:
+6.  Enjoy your data analysis! If you preferred to try PMDDA workflow, do the following step in RStudio:
 
 -   Go to File - New File - Rmarkdown...
 -   Click 'From Template'
