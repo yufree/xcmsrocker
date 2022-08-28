@@ -8,7 +8,7 @@ on:
 
 jobs:
   docker:
-    runs-on: [self-hosted, macOS, ARM64]
+    runs-on: [self-hosted, linux, ARM64]
     steps:
     
       - name: Check Out Repo 
