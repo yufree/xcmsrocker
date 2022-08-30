@@ -3,16 +3,18 @@ name: ghcr.io arm xcmsrocker
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  
 jobs:
   docker:
     runs-on: [self-hosted, macOS, ARM64]
     steps:
     
       - name: Check Out Repo 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Log in to the Container registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
