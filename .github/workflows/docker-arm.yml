@@ -34,7 +34,8 @@ jobs:
         with:
           context: ./armrocker
           push: true
-          tags: arm
+          tags: :yufree/xcmsrocker:arm
           labels: ${{ steps.meta.outputs.labels }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          secrets: |
+            "github_token=${{ secrets.GITHUB_TOKEN }}"
           
