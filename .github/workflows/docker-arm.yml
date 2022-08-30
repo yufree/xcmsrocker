@@ -34,7 +34,7 @@ jobs:
         with:
           context: ./armrocker
           push: true
-          tags: arm
+          tags: ${{ steps.meta.outputs.labels }}:arm
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
             "github_token=${{ secrets.GITHUB_TOKEN }}"
