@@ -36,4 +36,5 @@ jobs:
           push: true
           tags: arm
           labels: ${{ steps.meta.outputs.labels }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           
