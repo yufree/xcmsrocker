@@ -133,6 +133,7 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 -   [gWQS](https://cran.r-project.org/web/packages/gWQS/index.html) Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial, multinomial and count outcomes.
 -   [multcomp](https://cran.r-project.org/web/packages/multcomp/index.html) Simultaneous Inference in General Parametric Models to solve multiple comparisons issues
 -   [h2o](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html) Automating the machine learning workflow
+-   [table1](https://cran.r-project.org/web/packages/table1/index.html) Tables of Descriptive Statistics in HTML
 
 ### Chemometrics
 
