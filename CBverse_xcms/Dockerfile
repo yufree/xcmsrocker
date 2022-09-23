@@ -29,4 +29,5 @@ RUN apt-get update \
     isva \ 
     h2o \
     metapone \
-    
+    table1 \
+    flextable \
