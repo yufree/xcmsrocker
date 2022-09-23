@@ -9,4 +9,5 @@ RUN apt-get update \
     opentimsr \
     MALDIquant \
     MALDIquantForeign \
+  && installGithub.r \
     yufree/rmwf \
