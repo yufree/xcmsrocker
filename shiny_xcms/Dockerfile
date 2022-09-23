@@ -9,7 +9,6 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 	tidytext \
 	shinyjs \
 	rsconnect \
- && R -e "BiocManager::install(c('genefilter'))" \
  && installGithub.r \
  	yufree/scifetch \
  	yufree/enviGCMS \

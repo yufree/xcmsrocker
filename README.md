@@ -124,6 +124,7 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 
 -   [xMWAS](https://www.ncbi.nlm.nih.gov/pubmed/29069296) a data-driven integration and differential network analysis tool.
 -   [MetabNet](https://www.ncbi.nlm.nih.gov/pubmed/26125020) An R Package for Metabolic Association Analysis of High-Resolution Metabolomics Data.
+-   [metapone](https://academic.oup.com/bioinformatics/article-abstract/38/14/3662/6594115) Conducts pathway test of metabolomics data using a weighted permutation test
 
 ### Statistical analysis
 
