@@ -53,6 +53,7 @@ jobs:
           context: ./metaborocker
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/metaborocker:latest
+      
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
