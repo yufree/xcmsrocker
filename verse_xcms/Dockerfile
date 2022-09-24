@@ -1,9 +1,6 @@
 FROM yufree/xcms:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
-RUN --mount=type=secret,id=github_token \
-  cat /run/secrets/github_token
-  
 RUN apt-get update \
   && installGithub.r \
     KujawinskiLaboratory/Autotuner \
@@ -24,6 +21,5 @@ RUN apt-get update \
     yufree/enviGCMS \
     yufree/pmd \
     yufree/rmwf \
-    lifs-tools/rmzTab-m \
-    jaspershen/tidymass
+    lifs-tools/rmzTab-m
     

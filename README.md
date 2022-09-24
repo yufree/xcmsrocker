@@ -170,6 +170,6 @@ Here is a nice [review](https://rformassspectrometry.github.io/metaRbolomics-boo
 
 - [MetaboAnalystR](https://github.com/xia-lab/MetaboAnalystR) R functions for MetaboAnalyst and they maintain [docker image](https://github.com/xia-lab/MetaboAnalyst_Docker) officially.
 
-- [tidymass](https://www.tidymass.org/) the whole workflow of data processing and analysis for LC-MS-based untargeted metabolomics using tidyverse principles
+- [tidymass](https://www.tidymass.org/) the whole workflow of data processing and analysis for LC-MS-based untargeted metabolomics using tidyverse principles and you can find the official docker image [here](https://hub.docker.com/r/jaspershen/tidymass).
 
 - [R for Mass Spectrometry](https://www.rformassspectrometry.org/) R software for the analysis and interpretation of high throughput mass spectrometry assays.
