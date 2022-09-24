@@ -1,8 +1,7 @@
 FROM rocker/r-ver:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN /rocker_scripts/install_tidyverse.sh
-RUN --mount=type=secret,id=github_token \
-  cat /run/secrets/github_token
+
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libnetcdf-dev \
