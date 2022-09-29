@@ -1,4 +1,4 @@
-name: Docker xcmsrocker
+name: Docker xcmsrocker sif
 
 on:
   push:
