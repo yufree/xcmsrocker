@@ -18,7 +18,7 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
 COPY /apps /srv/shiny-server/
 # Make the ShinyApp available at port 80
-EXPOSE 80
+EXPOSE 8080
 # Copy further configuration files into the Docker image
 COPY shiny-server.sh /usr/bin/shiny-server.sh
 RUN ["chmod", "+x", "/usr/bin/shiny-server.sh"]
