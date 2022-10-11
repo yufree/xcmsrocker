@@ -1,0 +1,50 @@
+---
+title: "SP-ICP-MS的实现原理与应用"
+author: "于淼"
+date: "2014年12月27日"
+output: html_document
+---
+
+SP-ICP-MS是一种可以同时用来测定纳米颗粒粒径分布，质量浓度与颗粒浓度的分析方法。其本质为通过降低扫描时间，进样浓度与流速，使得单一扫描模式下每个扫描循环中能扫到的物质数小于等于1，也就是说在质谱端测得的每个信号都代表且仅代表最多一个颗粒物，这时测到的响应信号就是这个颗粒物中某一组分的质量响应：高代表单颗粒中响应高，低代表单颗粒中响应低。其核心实现条件为：
+
+$$\frac{F \cdot C \cdot V \cdot t}{m} \leq 1$$
+
+其中，F代表质谱可检测的质量占总质量的比值，C代表溶液中颗粒物浓度，V代表流速，t代表扫描驻留时间，m代表单颗粒的理论重量。其中，C、V与t是测定样品前就可以通过仪器参数去设定的；在有纳米颗粒标准品的条件下，m也可以通过计算得到；但F跟仪器关系比较大，可通过标准溶液的测定得到。该部分原理详细推导如下：
+
+在ICP-MS中离子密度可以表示为：
+
+$$n_{a_{M^+}} = \epsilon_{neb} \epsilon_{ion}\quad^a A \frac{Q_{sam}}{Q_{neb}} \frac{T_o}{T_{gas}} \frac{N_{A_v}}{M_M} C^{M}$$
+
+其中，$\epsilon_{neb}$与$\epsilon_{ion}$表示喷雾效率与离子化效率，$^a A$ 表示测量的同位素丰度，$Q_{sam}$ 是样品流速，$Q_{neb}$是雾化氩气流速，$T_o$与$T_{gas}$ 代表室内与等离子体的动力学温度，$N_{A_v}$是阿伏加德罗常数，$M_M$是原子量。
+
+质谱端信号可表示为：
+
+$$R = \epsilon_{neb} \epsilon_{ion} \epsilon_{trans}\quad^a A \frac{Q_{sam}}{Q_{neb}} \frac{G_o}{n_o} \frac{T_o}{T_{gas}} \frac{N_{A_v}}{M_M} C^{M}$$
+
+其中，$\epsilon_{trans}$表示为离子传输效率，$G_o$表示采样锥流速，$n_o$代表等离子体密度。
+
+考虑驻留时间，每个驻留时间内响应可表示为：
+
+$$r = \epsilon_{neb} \epsilon_{ion} \epsilon_{trans}\quad^a A \frac{Q_{sam}}{Q_{neb}} \frac{G_o}{n_o} \frac{T_o}{T_{gas}} \frac{N_{A_v}}{M_M} t_{dwell} C^{M}$$
+
+考虑溶液中的纳米颗粒，则其质量浓度可表示为：
+
+$$C_{NP}^{M} = \frac{4}{3} \pi (\frac{d}{2})^3 \rho N_{NP}$$
+
+当这部分颗粒被雾化后，到达等离子体的频率为：
+
+$$F_{NP} = \epsilon_{neb} Q_{sam} N_{NP} t_{dwell}$$
+
+考虑我们对单颗粒检测的要求，到达频率应该为1或不大于1才能保证每个驻留时间可以得到一个颗粒的信号，也就是说单颗粒信号为：
+
+$$r_{NP} = \frac{4}{3} \pi \epsilon_{ion} \epsilon_{trans}\quad^a A \frac{1}{Q_{neb}} \frac{G_o}{n_o} \frac{T_o}{T_{gas}} \frac{N_{Av}}{M_M} (\frac{d}{2})^3 \rho$$
+
+对于特定的仪器条件有$K = (\pi/6) \epsilon_{ion} \epsilon_{trans}\quad^a A \frac{1}{Q_{neb}} \frac{G_o}{n_o} \frac{T_o}{T_{gas}} \frac{N_{Av}}{M_M}$为常数，也就是说有:
+
+$$r_{NP} = K d^3$$
+
+这也就是单颗粒检测得到粒径分布的最基础的原理。从这个最终公式可以看出，实现该检测方法的必要条件是保证K的稳定。由于溶液通常比较稀，所以检测到的颗粒物信号频率应该符合泊松分布，但实际常常为对数正态分布。当溶液中同时含有离子态与颗粒态的物质时，溶解态符合泊松分布而颗粒态符合对数正态分布。其中，溶解态物质因为属于均一分布，在单颗粒模式下会符合泊松分布；颗粒态物质符合对数正态分布的原因与颗粒物的生长动力学过程密切相关。
+
+我开发了一个网页端应用用来处理该类数据，通过输入对应参数，可在有标准的情况下测定样品数据中的纳米颗粒粒径分布，欢迎大家使用！
+
+网址：https://yufree.shinyapps.io/spicpmsshiny/

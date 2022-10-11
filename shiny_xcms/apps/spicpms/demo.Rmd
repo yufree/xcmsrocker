@@ -1,0 +1,127 @@
+---
+title: "SP-ICP-MS"
+author: "yufree"
+date: "2014/12/30"
+output: html_document
+runtime: shiny
+---
+
+This R Markdown document is made interactive using Shiny. You could use these for a SP-ICP-MS analysis
+
+To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
+
+## Inputs and Outputs
+
+```{r, echo=FALSE}
+inputPanel(
+  fileInput('files', 'Choose standard CSV File for SP-ICP-MS',accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
+  fileInput('file', 'Choose sample CSV File for SP-ICP-MS',accept=c('text/csv', 'text/comma-separated-values,text/plain', '.csv')),
+  br(),
+  numericInput("skips", label = "SKIP", value = 4),
+  br(),
+  numericInput("nrowss", label = "Rows Number", value = 20000),
+  br(),
+  numericInput("threshold", label = "noise(cps)", value = 4),
+  numericInput("con", label = "standard concentration(ppt)", value = 50),
+  numericInput("di", label = "standard diameter(nm)", value = 60),
+  br(),
+  selectInput("element", 
+        label = "Choose element",
+        choices = list("Au", "Ag","SiO2","TiO2","ZnO"),
+        selected = "Au"),
+  br(),
+  sliderInput("flow", label = "flow rate(ml/min)", min = 0.1, max = 0.5, value = 0.1, step = 0.01),
+  sliderInput("dwell", label = "dwell time(ms)", min = 0, max = 20, value = 3, step = 1),
+  br(),
+  sliderInput("breaks", label = "breaks", min = 30, max = 200, value = 80, step = 10),
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:", min = 0.2, max = 2, value = 1, step = 0.2)
+)
+renderPlot({
+inFiles <- input$files
+if (is.null(inFiles)) return(NULL)
+contentss <- read.csv(inFiles$datapath,
+                      skip=input$skips,
+                      nrows=input$nrowss,
+                      sep = ",",comment.char="",
+                      colClasses = c('numeric','numeric'),
+                      col.names = c('time','cps'), na.strings = NA)
+# input mass(fg)
+  mass <- input$dwell*(input$nrowss - 1)*input$flow*input$con/60
+# get nano particle mass ele in g/ml
+  ele <- switch(input$element, 
+        "Au" = 19.3,
+        "Ag" = 10.49,
+        "SiO2" = 2.634,
+        "TiO2" = 4.23,
+        "ZnO" = 5.606)
+  nanomass <- (4/3)*pi*(input$di/2)^3*ele/10000000
+# get nano particle signals and relationship between signal and mass
+  realsignal <- contentss$cps[contentss$cps>=input$threshold]-input$threshold
+  signalmean <- mean(contentss$cps[contentss$cps>=input$threshold])-input$threshold
+  massratio <- signalmean/nanomass
+  realmass <- realsignal/massratio
+  realdi <- (realmass*60000000/(pi*ele))^(1/3)
+# get signal response
+  backgroundcounts <- sum(contentss$cps<input$threshold)
+  signalcounts <- input$nrowss-backgroundcounts
+# get nebulazition efficiency
+  neb <- signalcounts/(mass/nanomass)
+
+hist(realdi,probability = TRUE,breaks = input$breaks, xlab = "diameter(nm)", main = "")
+dens <- density(realdi, adjust = input$bw_adjust)
+lines(dens, col = "blue")
+})
+renderPlot({
+        
+inFiles <- input$files
+if (is.null(inFiles)) return(NULL)
+contentss <- read.csv(inFiles$datapath,
+                      skip=input$skips,
+                      nrows=input$nrowss,
+                      sep = ",",comment.char="",
+                      colClasses = c('numeric','numeric'),
+                      col.names = c('time','cps'), na.strings = NA)
+# input mass(fg)
+  mass <- input$dwell*(input$nrowss - 1)*input$flow*input$con/60
+# get nano particle mass ele in g/ml
+  ele <- switch(input$element, 
+        "Au" = 19.3,
+        "Ag" = 10.49,
+        "SiO2" = 2.634,
+        "TiO2" = 4.23,
+        "ZnO" = 5.606)
+  nanomass <- (4/3)*pi*(input$di/2)^3*ele/10000000
+# get nano particle signals and relationship between signal and mass
+  realsignal <- contentss$cps[contentss$cps>=input$threshold]-input$threshold
+  signalmean <- mean(contentss$cps[contentss$cps>=input$threshold])-input$threshold
+  massratio <- signalmean/nanomass
+  realmass <- realsignal/massratio
+  realdi <- (realmass*60000000/(pi*ele))^(1/3)
+# get signal response
+  backgroundcounts <- sum(contentss$cps<input$threshold)
+  signalcounts <- input$nrowss-backgroundcounts
+# get nebulazition efficiency
+  neb <- signalcounts/(mass/nanomass)
+inFile <- input$file
+if (is.null(inFile)) return(NULL)
+contents <- read.csv(inFile$datapath,
+                     skip=input$skips,
+                     nrows=input$nrowss,
+                     sep = ",",comment.char="",
+                     colClasses = c('numeric','numeric'),
+                     col.names = c('time','cps'), na.strings = NA)
+realsignals <- contents$cps[contents$cps>=input$threshold]-input$threshold
+realmasss <- realsignals/massratio
+realdis <- (realmasss*60000000/(pi*ele))^(1/3)
+mediansample <- median(realdis)
+samplecon <- realmasss/(input$dwell*(input$nrowss - 1)*input$flow)
+# get signal response
+backgroundcount <- sum(contents$cps<input$threshold)
+signalcount <- input$nrowss-backgroundcounts
+# counts per ml
+numcon <- signalcount/neb/60000
+hist(realdis,probability = TRUE,breaks = input$breaks, xlab = "diameter(nm)", main = "")
+den <- density(realdis, adjust = input$bw_adjust)
+lines(den, col = "red")
+})
+```
