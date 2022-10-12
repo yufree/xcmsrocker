@@ -1,4 +1,4 @@
-FROM rocker/verse:latest
+FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
@@ -6,5 +6,4 @@ RUN apt-get update \
   && install2.r --error \
     opentimsr \
     MALDIquantForeign \
-  && installGithub.r \
-    yufree/rmwf \
+  

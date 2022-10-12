@@ -1,4 +1,4 @@
-FROM yufree/xcms:latest
+FROM rocker/shiny-verse:latest
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 	libgsl-dev \
   && install2.r \
@@ -13,4 +13,5 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
  	yufree/scifetch \
  	yufree/enviGCMS \
  	yufree/pmd 
-RUN export ADD=shiny && bash /etc/cont-init.d/add
+ 	
+
