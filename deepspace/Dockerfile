@@ -14,7 +14,7 @@ RUN bash ./anaconda3.sh -b -p /opt/anaconda3 && \
     rm ./anaconda3.sh && \
     /opt/anaconda3/bin/conda create -yn timsconvert python=3.7 && \
     export PATH=/opt/anaconda3/bin/:$PATH && \
-    conda activate timsconvert
+    source activate timsconvert
     
 ENV PATH /opt/anaconda3/bin/:$PATH   
 RUN pip install --upgrade pip
