@@ -14,3 +14,5 @@ RUN conda activate timsconvert
 RUN git clone https://www.github.com/gtluu/timsconvert
 RUN pip install -r timsconvert/requirements.txt
 RUN pip install git+https://github.com/gtluu/pyimzML
+
+
