@@ -1,4 +1,4 @@
-FROM yufree/metaborocker:latest
+FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
@@ -6,16 +6,17 @@ RUN apt-get update \
   && install2.r --error \
     MALDIquantForeign
 
+WORKDIR /opt
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O anaconda3.sh && \
     chmod +x anaconda3.sh && \
-    ./anaconda3.sh -b -p ~/anaconda3 && \
+    ./anaconda3.sh -b -p /opt/anaconda3 && \
     rm ./anaconda3.sh && \
-    ~/anaconda3/bin/conda create -yn timsconvert python=3.7 && \
-    export PATH=~/anaconda3/bin/:$PATH && \
-    source activate timsconvert
+    /opt/anaconda3/bin/conda create -yn timsconvert python=3.7 && \
+    export PATH=/opt/anaconda3/bin/:$PATH && \
+    conda activate timsconvert
     
-ENV PATH ~/anaconda3/bin/:$PATH   
-
+ENV PATH /opt/anaconda3/bin/:$PATH   
+RUN pip install --upgrade pip
 RUN git clone https://www.github.com/gtluu/timsconvert
 RUN pip install -r timsconvert/requirements.txt
 RUN pip install git+https://github.com/gtluu/pyimzML
