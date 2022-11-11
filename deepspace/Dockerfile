@@ -8,8 +8,9 @@ RUN apt-get update \
 
 WORKDIR /opt
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O anaconda3.sh && \
-    chmod +x anaconda3.sh && \
-    ./anaconda3.sh -b -p /opt/anaconda3 && \
+    chmod +x anaconda3.sh
+    
+RUN bash ./anaconda3.sh -b -p /opt/anaconda3 && \
     rm ./anaconda3.sh && \
     /opt/anaconda3/bin/conda create -yn timsconvert python=3.7 && \
     export PATH=/opt/anaconda3/bin/:$PATH && \
