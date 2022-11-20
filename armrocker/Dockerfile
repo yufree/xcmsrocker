@@ -120,4 +120,5 @@ RUN apt-get update \
     yufree/pmd \
     yufree/rmwf \
     lifs-tools/rmzTab-m
-    
+   && rm -rf /tmp/downloaded_packages \
+   && strip /usr/local/lib/R/site-library/*/libs/*.so

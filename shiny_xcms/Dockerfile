@@ -12,7 +12,9 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
  && installGithub.r \
  	yufree/scifetch \
  	yufree/enviGCMS \
- 	yufree/pmd 
+ 	yufree/pmd \
+ && rm -rf /tmp/downloaded_packages \
+ && strip /usr/local/lib/R/site-library/*/libs/*.so
 
 # Copy configuration files into the Docker image
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
