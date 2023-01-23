@@ -30,3 +30,5 @@ RUN apt-get update \
     h2o \
     table1 \
     flextable \
+    && rm -rf /tmp/downloaded_packages \
+    && strip /usr/local/lib/R/site-library/*/libs/*.so
