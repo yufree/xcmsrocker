@@ -9,17 +9,11 @@ RUN apt-get update && \
     python3-dev \
     python3-pip
 
-# install jupyterhub and pytorch
-RUN pip install jupyterhub torch torchvision
-
-# install captum
-RUN pip install captum
-
-# copy config files
-COPY jupyterhub_config.py /etc/jupyterhub/
+# install jupyterlab, pytorch and captum
+RUN pip install jupyterlab torch torchvision captum
 
 # expose port
-EXPOSE 8000
+EXPOSE 8888
 
-# run jupyterhub
-CMD ["jupyterhub", "-f", "/etc/jupyterhub/jupyterhub_config.py"]
+# run jupyter lab
+CMD ["jupyter", "lab", "--allow-root"]
