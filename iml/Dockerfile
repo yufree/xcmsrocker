@@ -1,21 +1,20 @@
 FROM jupyter/base-notebook:latest
 
-RUN mkdir -p /var/lib/apt/lists/partial && \
-    chown -R root:root /var/lib/apt/lists/partial
-# update and install dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    build-essential \
-    libssl-dev \
-    libffi-dev \
-    python3-dev \
-    python3-pip
+USER root
 
-# install jupyterlab, pytorch and captum
-RUN pip install jupyterlab torch torchvision captum
+RUN python3 -m pip install --no-cache-dir --upgrade pip && \
+    python3 -m pip install --no-cache-dir \
+    jupyterlab \
+    torch \ 
+    torchvision \
+    captum
+
+USER ${NB_UID}
+
+WORKDIR "${HOME}"
 
 # expose port
 EXPOSE 8888
 
 # run jupyter lab
-CMD ["jupyter", "lab", "--allow-root"]
+CMD ["jupyter", "lab"]
