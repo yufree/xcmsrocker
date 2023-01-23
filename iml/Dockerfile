@@ -1,5 +1,7 @@
 FROM jupyter/base-notebook:latest
 
+RUN mkdir -p /var/lib/apt/lists/partial && \
+    chown -R root:root /var/lib/apt/lists/partial
 # update and install dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
