@@ -4,7 +4,6 @@ USER root
 
 RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     python3 -m pip install --no-cache-dir \
-    jupyterlab \
     torch \ 
     torchvision \
     captum
@@ -15,6 +14,3 @@ WORKDIR "${HOME}"
 
 # expose port
 EXPOSE 8888
-
-# run jupyter lab
-CMD ["jupyter", "lab"]
