@@ -3,7 +3,7 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN /rocker_scripts/install_tidyverse.sh
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
+  && apt-get install -qq -y --no-install-recommends \
     libnetcdf-dev \
     ## rgl support
     libgl1-mesa-dev \
