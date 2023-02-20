@@ -7,7 +7,7 @@ RUN apt-get update \
     omegahat/XMLSchema \
     cran/SSOAP \
     cbroeckl/RAMClustR \
-    cran/ChemometricsWithR \
+    rwehrens/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
     KechrisLab/MSPrep \
     yufree/MetDIA \
