@@ -17,6 +17,6 @@ RUN bash ./anaconda3.sh -b -p /opt/anaconda3 && \
 ENV PATH /opt/anaconda3/bin/:$PATH
 SHELL ["conda", "run", "-n", "timsconvert", "/bin/bash", "-c"]
 RUN pip install --upgrade pip
-RUN git clone https://www.github.com/gtluu/timsconvert
+RUN git clone https://www.github.com/TheJacksonLaboratory/timsconvert
 RUN pip install -r timsconvert/requirements.txt
 RUN pip install git+https://github.com/gtluu/pyimzML
