@@ -2,9 +2,11 @@ FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
-  && R -e "BiocManager::install(c('Cardinal','CardinalWorkflows'))" \
-  && install2.r --error \
-    MALDIquantForeign
+  && installGithub.r \
+  yufree/Cardinal \
+  && R -e "BiocManager::install(c('CardinalWorkflows'))" \
+  && rm -rf /tmp/downloaded_packages \
+  && strip /usr/local/lib/R/site-library/*/libs/*
 
 WORKDIR /opt
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O anaconda3.sh && \
