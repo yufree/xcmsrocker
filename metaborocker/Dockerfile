@@ -17,10 +17,12 @@ RUN apt-get update && apt-get install -y wget bzip2 \
 
 # Create Conda environments
 RUN /opt/conda/bin/conda create -y -n openms \
+    && source /opt/conda/etc/profile.d/conda.sh \
     && /opt/conda/bin/conda activate openms \
     && /opt/conda/bin/conda install -y -c bioconda pyopenms
 
 RUN /opt/conda/bin/conda create -y -n matchms \
+    && source /opt/conda/etc/profile.d/conda.sh \
     && /opt/conda/bin/conda activate matchms \
     && /opt/conda/bin/conda install -y -c bioconda matchms
 
