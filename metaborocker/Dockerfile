@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y wget bzip2 \
     && echo "conda activate base" >> ~/.bashrc
 
 # Create Conda environments
-RUN /opt/conda/bin/conda create -y -n openms -c bioconda pyopenms 
+RUN /opt/conda/bin/conda create -y -n openms -c conda-forge python=3.9 'libgcc-ng>=10.3.0' '__glibc>=2.17' -c bioconda pyopenms 
 
 RUN /opt/conda/bin/conda create -y -n matchms -c bioconda matchms
 
