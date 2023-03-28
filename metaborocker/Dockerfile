@@ -16,13 +16,9 @@ RUN apt-get update && apt-get install -y wget bzip2 \
     && echo "conda activate base" >> ~/.bashrc
 
 # Create Conda environments
-RUN /opt/conda/bin/conda create -y -n openms \
-    && /bin/bash -c "source activate openms" \
-    && /opt/conda/envs/openms/bin/conda install -y -c bioconda pyopenms
+RUN /opt/conda/bin/conda create -y -n openms -c bioconda pyopenms 
 
-RUN /opt/conda/bin/conda create -y -n matchms \
-    && /bin/bash -c "source activate matchms" \
-    && /opt/conda/envs/matchms/bin/conda install -y -c bioconda matchms
+RUN /opt/conda/bin/conda create -y -n matchms -c bioconda matchms
 
 # Set environment variables for R
 ENV RETICULATE_PYTHON /opt/conda/bin/python
