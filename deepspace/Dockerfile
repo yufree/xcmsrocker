@@ -4,10 +4,12 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
   yufree/Cardinal \
+  && install2.r --error --skipinstalled \
+    opentimsr \
   && R -e "BiocManager::install(c('CardinalWorkflows'))" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
-
+    
 WORKDIR /opt
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O anaconda3.sh && \
     chmod +x anaconda3.sh
