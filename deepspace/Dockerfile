@@ -4,8 +4,7 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
   yufree/Cardinal \
-  && install2.r --error --skipinstalled \
-    opentimsr \
+  michalsta/opentims/opentimsr \
   && R -e "BiocManager::install(c('CardinalWorkflows'))" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
