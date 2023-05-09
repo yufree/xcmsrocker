@@ -8,6 +8,8 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     python3 -m pip install --no-cache-dir \
     torch \ 
     torchvision \
+    torchmetrics \
+    pymzml \
     captum
 
 RUN python3 -m pip install git+https://github.com/gtluu/pyimzML
