@@ -7,8 +7,10 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     torch \ 
     torchvision \
     torchmetrics \
+    torchviz \
     pymzml \
-    captum
+    captum \
+    pandas
 
 RUN python3 -m pip install git+https://github.com/gtluu/pyimzML
 
