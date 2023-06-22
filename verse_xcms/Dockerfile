@@ -15,6 +15,7 @@ RUN apt-get update \
     aberHRML/classyfireR \
     yufree/enviGCMS \
     yufree/pmd \
+    yufree/mzrtsim \
     yufree/rmwf \
     lifs-tools/rmzTab-m \
   && rm -rf /tmp/downloaded_packages \
