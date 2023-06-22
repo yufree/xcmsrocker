@@ -10,9 +10,10 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     torchviz \
     pymzml \
     captum \
-    pandas
-
-RUN python3 -m pip install git+https://github.com/gtluu/pyimzML
+    pandas \
+    pyimzml \
+    matplotlib \
+    Pillow
 
 USER ${NB_UID}
 
