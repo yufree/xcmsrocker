@@ -3,8 +3,6 @@ name: Docker xcmsrocker sif
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   docker:
@@ -31,7 +29,3 @@ jobs:
           context: ./sifrocker
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcmsrocker:sif
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-        

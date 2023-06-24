@@ -3,8 +3,10 @@ name: Docker xcmsrocker
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   docker:
@@ -12,13 +14,20 @@ jobs:
     steps:
     
       - name: Check Out Repo 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Docker Buildx
         id: buildx
@@ -32,20 +41,23 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcms:latest
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-        
-      - name: Build and push
-        id: docker_build2
-        uses: docker/build-push-action@v2
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: |
+                ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+                ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          tags: latest
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: ./verse_xcms
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcmsrocker:latest
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-        
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}    
+      
       - name: Build and push
         id: docker_build3
         uses: docker/build-push-action@v2
@@ -54,6 +66,4 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/metaborocker:latest
       
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-
+      

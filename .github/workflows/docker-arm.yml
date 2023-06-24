@@ -1,4 +1,4 @@
-name: arm xcmsrocker
+name: Docker xcmsrocker arm
 
 on:
   push:
