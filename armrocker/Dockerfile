@@ -1,6 +1,28 @@
 FROM rocker/rstudio:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
+RUN /rocker_scripts/install_pandoc.sh
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libfreetype6-dev \
+    libpng-dev \
+    libtiff5-dev \
+    libjpeg-dev \
+    libxml2-dev \
+    libcairo2-dev \
+    libgit2-dev \
+    default-libmysqlclient-dev \
+    libpq-dev \
+    libsasl2-dev \
+    libsqlite3-dev \
+    libssh2-1-dev \
+    libxtst6 \
+    libcurl4-openssl-dev \
+    unixodbc-dev
+  
 RUN install2.r --error --skipinstalled \
     tidyverse \
     devtools \
