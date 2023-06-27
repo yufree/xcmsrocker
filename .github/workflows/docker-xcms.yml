@@ -43,22 +43,15 @@ jobs:
           context: ./CBverse_xcms
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcms:latest
-
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: |
-                ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-                ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}
           
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: ./verse_xcms
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}    
+          tags: |
+            ${{ secrets.DOCKER_HUB_USERNAME }}/xcmsrocker:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
       
       - name: Build and push
         id: docker_build3
