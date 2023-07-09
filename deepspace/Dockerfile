@@ -5,7 +5,7 @@ RUN apt-get update \
   && installGithub.r \
   yufree/Cardinal \
   michalsta/opentims/opentimsr \
-  && R -e "BiocManager::install(c('CardinalWorkflows'))" \
+  && R -e "BiocManager::install(c('CardinalWorkflows','RNiftyReg'))" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
     
