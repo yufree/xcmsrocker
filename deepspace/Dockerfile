@@ -3,9 +3,10 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
   && installGithub.r \
-  yufree/Cardinal \
+  nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
-  && R -e "BiocManager::install(c('CardinalWorkflows'))" \
+  SimpleITK/SimpleITKRInstaller \
+  && R -e "BiocManager::install(c('Cardinal',CardinalWorkflows','RNiftyReg','sf'))" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
     
@@ -23,3 +24,4 @@ RUN pip install --upgrade pip
 RUN git clone https://www.github.com/TheJacksonLaboratory/timsconvert
 RUN pip install -r timsconvert/requirements.txt
 RUN pip install git+https://github.com/gtluu/pyimzML
+RUN pip install SimpleITK
