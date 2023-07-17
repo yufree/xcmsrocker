@@ -3,9 +3,7 @@ name: Docker deepspace
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+  
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -31,6 +29,3 @@ jobs:
           context: ./deepspace
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/deepspace:latest
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}

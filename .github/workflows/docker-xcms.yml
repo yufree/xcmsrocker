@@ -3,22 +3,34 @@ name: Docker xcmsrocker
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
     
       - name: Check Out Repo 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Docker Buildx
         id: buildx
@@ -31,29 +43,22 @@ jobs:
           context: ./CBverse_xcms
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcms:latest
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-        
-      - name: Build and push
-        id: docker_build2
-        uses: docker/build-push-action@v2
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
         with:
           context: ./verse_xcms
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/xcmsrocker:latest
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-        
+          tags: |
+            ${{ secrets.DOCKER_HUB_USERNAME }}/xcmsrocker:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      
       - name: Build and push
         id: docker_build3
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: ./metaborocker
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/metaborocker:latest
       
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-
+      
