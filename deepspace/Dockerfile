@@ -6,7 +6,7 @@ RUN apt-get update \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
   SimpleITK/SimpleITKRInstaller \
-  && R -e "BiocManager::install(c('Cardinal',CardinalWorkflows','RNiftyReg','sf'))" \
+  && R -e "BiocManager::install(c('Cardinal','CardinalWorkflows','RNiftyReg','sf'))" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
     
