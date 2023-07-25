@@ -2,11 +2,19 @@ FROM yufree/xcmsrocker:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libudunits2-dev \
+    libgdal-dev \
+    libgeos-dev \
+    libproj-dev
+    
+RUN apt-get update \
+  && R -e "BiocManager::install(c('Cardinal',CardinalWorkflows','RNiftyReg','sf','ClusterR','cluster','purrr','ggplot2','imager','umap','Matrix','igraph','tidygraph','ggraph','opentimsr','reshape2'))" \
   && installGithub.r \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
   SimpleITK/SimpleITKRInstaller \
-  && R -e "BiocManager::install(c('Cardinal',CardinalWorkflows','RNiftyReg','sf'))" \
+  sslakkimsetty/msireg \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
     
