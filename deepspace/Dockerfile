@@ -9,7 +9,7 @@ RUN apt-get update \
     libproj-dev
     
 RUN apt-get update \
-  && R -e "BiocManager::install(c('Cardinal',CardinalWorkflows','RNiftyReg','sf','ClusterR','cluster','purrr','ggplot2','imager','umap','Matrix','igraph','tidygraph','ggraph','opentimsr','reshape2'))" \
+  && R -e "BiocManager::install(c('Cardinal','CardinalWorkflows','RNiftyReg','sf','ClusterR','cluster','purrr','ggplot2','imager','umap','Matrix','igraph','tidygraph','ggraph','opentimsr','reshape2'))" \
   && installGithub.r \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
