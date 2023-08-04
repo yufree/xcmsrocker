@@ -31,7 +31,7 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/iml:latest
 
       - name: Build and push ITK
-        id: docker_build
+        id: docker_build_itk
         uses: docker/build-push-action@v2
         with:
           context: ./ITK
