@@ -1,4 +1,4 @@
-FROM yufree/xcmsrocker:latest
+FROM yufree/deepspace:itk
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
@@ -16,7 +16,6 @@ RUN apt-get update \
   && installGithub.r \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
-  SimpleITK/SimpleITKRInstaller \
   sslakkimsetty/msireg \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
