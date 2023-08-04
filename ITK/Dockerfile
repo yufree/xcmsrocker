@@ -1,9 +1,9 @@
-FROM yufree/xcmsrocker:latest
+FROM yufree/xcms:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
   && installGithub.r \
-  SimpleITK/SimpleITKRInstaller \
+  sslakkimsetty/msireg \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
   

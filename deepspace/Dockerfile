@@ -16,7 +16,6 @@ RUN apt-get update \
   && installGithub.r \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
-  sslakkimsetty/msireg \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/*
     
