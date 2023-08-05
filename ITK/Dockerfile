@@ -1,4 +1,4 @@
-FROM rocker/verse:latest
+FROM rocker/r-ver:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
