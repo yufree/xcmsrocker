@@ -1,6 +1,5 @@
 FROM yufree/deepspace:itk
 MAINTAINER "Miao Yu" yufreecas@gmail.com
-RUN /rocker_scripts/install_tidyverse.sh
 RUN /rocker_scripts/install_verse.sh
 RUN /rocker_scripts/install_geospatial.sh
 
