@@ -1,4 +1,4 @@
-FROM rocker/rstudio:latest
+FROM rocker/tidyverse:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && installGithub.r \
