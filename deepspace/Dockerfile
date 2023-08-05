@@ -1,16 +1,11 @@
 FROM yufree/deepspace:itk
 MAINTAINER "Miao Yu" yufreecas@gmail.com
+RUN /rocker_scripts/install_tidyverse.sh
+RUN /rocker_scripts/install_verse.sh
+RUN /rocker_scripts/install_geospatial.sh
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    libudunits2-dev \
-    libgdal-dev \
-    libgeos-dev \
-    libproj-dev \
-  && rm -rf /tmp/downloaded_packages
-    
-RUN apt-get update \
-  && R -e "BiocManager::install(c('Cardinal','CardinalWorkflows','RNiftyReg','sf','ClusterR','cluster','purrr','ggplot2','imager','umap','Matrix','igraph','tidygraph','ggraph','opentimsr','reshape2','dbscan','MALDIquantForeign'))" \
+  && R -e "BiocManager::install(c('Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Matrix','igraph','tidygraph','ggraph','opentimsr','reshape2','dbscan','MALDIquantForeign'))" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/* \
   && installGithub.r \
