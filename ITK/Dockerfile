@@ -6,7 +6,7 @@ RUN apt-get update \
   git \
   &&install2.r \
   devtools \
-  && R -e "devtools::install_github("SimpleITK/SimpleITKRInstaller", configure.vars = 'MAKEJ=6')" \
+  && R -e "devtools::install_github('SimpleITK/SimpleITKRInstaller', configure.vars = 'MAKEJ=6')" \
   && rm -rf /tmp/downloaded_packages \
   && rm -rf /var/lib/apt/lists/* \
   && strip /usr/local/lib/R/site-library/*/libs/*
