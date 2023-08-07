@@ -1,16 +1,17 @@
-FROM yufree/deepspace:itk
+FROM rocker/geospatial:lastest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
-RUN /rocker_scripts/install_verse.sh
-RUN /rocker_scripts/install_geospatial.sh
 
 RUN apt-get update \
   && R -e "BiocManager::install(c('Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Matrix','igraph','tidygraph','ggraph','opentimsr','reshape2','dbscan','MALDIquantForeign'))" \
+  && R -e "devtools::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.0.0/SimpleITK_2.0.0_R_x86_64-pc-linux-gnu.tar.gz',build=F)" \
   && rm -rf /tmp/downloaded_packages \
   && strip /usr/local/lib/R/site-library/*/libs/* \
   && installGithub.r \
+  sslakkimsetty/msireg \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
   && rm -rf /tmp/downloaded_packages \
+  && rm -rf /var/lib/apt/lists/* \
   && strip /usr/local/lib/R/site-library/*/libs/*
     
 WORKDIR /opt
