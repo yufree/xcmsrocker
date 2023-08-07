@@ -1,4 +1,4 @@
-FROM rocker/geospatial:lastest
+FROM rocker/geospatial:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
