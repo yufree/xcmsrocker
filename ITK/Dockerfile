@@ -4,9 +4,9 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   cmake \
   git \
-  &&install2.r --error --skipinstalled -n "$NCPUS" \
+  &&install2.r --error --skipinstalled -n 2 \
   devtools \
-  && R -e "devtools::install_github("SimpleITK/SimpleITKRInstaller", configure.args = '--cores=2')" \
+  && R -e "devtools::install_github("SimpleITK/SimpleITKRInstaller", configure.vars = 'MAKEJ=6') \
   && rm -rf /tmp/downloaded_packages \
   && rm -rf /var/lib/apt/lists/* \
   && strip /usr/local/lib/R/site-library/*/libs/*
