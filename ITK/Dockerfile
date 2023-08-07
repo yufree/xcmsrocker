@@ -4,7 +4,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   cmake \
   git \
-  &&install2.r --error --skipinstalled -n 2 \
+  &&install2.r \
   devtools \
   && R -e "devtools::install_github("SimpleITK/SimpleITKRInstaller", configure.vars = 'MAKEJ=6') \
   && rm -rf /tmp/downloaded_packages \
