@@ -20,7 +20,7 @@ RUN apt-get update \
     libssh2-1-dev \
     libxtst6 \
     libcurl4-openssl-dev \
-    unixodbc-dev \
+    unixodbc-dev 
   
 RUN install2.r --error --skipinstalled \
     devtools \
