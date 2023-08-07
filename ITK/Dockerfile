@@ -1,10 +1,12 @@
-FROM rocker/tidyverse:latest
+FROM rocker/r-ver:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
   cmake \
-  && installGithub.r \
-  sslakkimsetty/msireg \
+  git \
+  &&install2.r --error --skipinstalled -n "$NCPUS" \
+  devtools \
+  && R -e "devtools::install_github("SimpleITK/SimpleITKRInstaller", configure.args = '--cores=2')" \
   && rm -rf /tmp/downloaded_packages \
   && rm -rf /var/lib/apt/lists/* \
   && strip /usr/local/lib/R/site-library/*/libs/*
