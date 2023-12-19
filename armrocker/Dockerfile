@@ -49,7 +49,6 @@ RUN apt-get update \
     webchem \
     InterpretMSSpectrum \
     tcltk2 \
-    ROCS \
     plotly \
     caret \ 
     caretEnsemble \

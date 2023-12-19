@@ -20,7 +20,6 @@ RUN apt-get update \
     RAMClustR \
     InterpretMSSpectrum \
     tcltk2 \
-    ROCS \
     plotly \
     caret \ 
     caretEnsemble \
