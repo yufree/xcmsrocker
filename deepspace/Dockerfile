@@ -3,6 +3,7 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
   && installGithub.r \
+  yufree/rmwf \
   yufree/enviGCMS \
   yufree/pmd \
   nhpatterson/RegCombIMS \
