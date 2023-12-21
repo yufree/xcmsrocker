@@ -17,16 +17,15 @@ jobs:
     steps:
     
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
         with:
-          image: ghcr.io/grimbough/bioc-with-tinytex:devel-arm64
           platforms: arm64
             
       - name: Check Out Repo 
         uses: actions/checkout@v3
 
       - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -48,7 +47,7 @@ jobs:
           tags: arm
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@v5
         with:
           context: ./armrocker
           platforms: linux/arm64
