@@ -1,4 +1,4 @@
-name: Docker xcmsrocker arm
+name: Docker xcmsrocker arm0
 
 on:
   push:
@@ -39,17 +39,17 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        uses: docker/metadata-action@v5
         with:
           images: |
                 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                 ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}
-          tags: arm
+          tags: arm0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./armrocker
+          context: ./armrocker0
           platforms: linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
