@@ -11,8 +11,7 @@ RUN apt-get update \
   && R -e "BiocManager::install(c('duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','patchwork','ggridges','pheatmap','distances','ropls'))" \
   && R -e "devtools::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.3.0/SimpleITK_2.3.0_R_x86_64-pc-linux-gnu.tar.gz',build=F)" \
   && rm -rf /tmp/downloaded_packages \
-  && rm -rf /var/lib/apt/lists/* \
-  && strip /usr/local/lib/R/site-library/*/libs/*
+  && rm -rf /var/lib/apt/lists/* 
     
 WORKDIR /opt
 RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh -O anaconda3.sh && \
