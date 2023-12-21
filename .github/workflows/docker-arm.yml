@@ -19,9 +19,9 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
-          image: tonistiigi/binfmt:latest
+          image: ghcr.io/grimbough/bioc-with-tinytex:devel-arm64
           platforms: arm64
-          
+            
       - name: Check Out Repo 
         uses: actions/checkout@v3
 
