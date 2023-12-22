@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: write
+      contents: read
     steps:
     
       - name: Set up QEMU
@@ -43,7 +43,7 @@ jobs:
         with:
           images: |
                 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-                ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}
+                ${{ env.IMAGE_NAME }}
           tags: arm0
 
       - name: Build and push Docker image

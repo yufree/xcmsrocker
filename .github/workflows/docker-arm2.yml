@@ -43,7 +43,7 @@ jobs:
         with:
           images: |
                 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-                ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}
+                ${{ env.IMAGE_NAME }}
           tags: arm
 
       - name: Build and push Docker image
