@@ -1,4 +1,4 @@
-FROM yufree/xcmsrocker:arm0
+FROM yufree/xcmsrocker:arm
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
