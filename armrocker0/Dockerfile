@@ -20,7 +20,14 @@ RUN apt-get update \
     libssh2-1-dev \
     libxtst6 \
     libcurl4-openssl-dev \
-    unixodbc-dev 
+    unixodbc-dev \
+    libnetcdf-dev \
+    ## rgl support
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
+    ## tcl tk support
+    tcl8.6-dev \
+    tk8.6-dev
   
 RUN install2.r --error --skipinstalled \
     devtools \
