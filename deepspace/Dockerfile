@@ -28,4 +28,3 @@ RUN pip install --upgrade pip
 RUN git clone https://www.github.com/TheJacksonLaboratory/timsconvert
 RUN pip install -r timsconvert/requirements.txt
 RUN pip install git+https://github.com/gtluu/pyimzML
-RUN pip install SimpleITK
