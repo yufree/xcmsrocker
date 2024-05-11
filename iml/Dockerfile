@@ -13,8 +13,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     pandas \
     pyimzml \
     matplotlib \
-    Pillow \
-    shutil
+    Pillow 
 
 USER ${NB_UID}
 
