@@ -2,13 +2,14 @@ FROM rocker/geospatial:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 RUN apt-get update \
+  && R -e "BiocManager::install(c('duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','patchwork','ggridges','pheatmap','distances','ropls'))" \
   && installGithub.r \
   yufree/rmwf \
   yufree/enviGCMS \
   yufree/pmd \
   nhpatterson/RegCombIMS \
   michalsta/opentims/opentimsr \
-  && R -e "BiocManager::install(c('duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','patchwork','ggridges','pheatmap','distances','ropls'))" \
+  yufree/HiTMaP \
   && R -e "devtools::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.3.0/SimpleITK_2.3.0_R_x86_64-pc-linux-gnu.tar.gz',build=F)" \
   && rm -rf /tmp/downloaded_packages \
   && rm -rf /var/lib/apt/lists/* 
@@ -29,4 +30,3 @@ RUN pip install -r timsconvert/requirements.txt
 RUN pip install git+https://github.com/gtluu/pyimzML
 RUN pip install git+https://github.com/gtluu/pyTDFSDK
 RUN pip install h5py pandas numpy matplotlib
-
