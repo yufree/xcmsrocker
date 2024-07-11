@@ -27,6 +27,4 @@ SHELL ["conda", "run", "-n", "timsconvert", "/bin/bash", "-c"]
 RUN pip install --upgrade pip
 RUN git clone https://www.github.com/TheJacksonLaboratory/timsconvert
 RUN pip install -r timsconvert/requirements.txt
-RUN pip install git+https://github.com/gtluu/pyimzML
-RUN pip install git+https://github.com/gtluu/pyTDFSDK
 RUN pip install h5py pandas numpy matplotlib
