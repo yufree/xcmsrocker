@@ -8,7 +8,7 @@ RUN apt-get update \
   yufree/enviGCMS \
   yufree/pmd \
   nhpatterson/RegCombIMS \
-  michalsta/opentims/opentimsr \
+  yufree/opentims/opentimsr \
   yufree/HiTMaP \
   && R -e "devtools::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.3.0/SimpleITK_2.3.0_R_x86_64-pc-linux-gnu.tar.gz',build=F)" \
   && rm -rf /tmp/downloaded_packages \
