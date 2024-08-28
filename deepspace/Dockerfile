@@ -33,9 +33,9 @@ RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc |
 
 WORKDIR /workspace
 
-RUN wget https://github.com/cdr/code-server/releases/download/v3.12.0/code-server_3.12.0_amd64.deb \
-    && dpkg -i code-server_3.12.0_amd64.deb \
-    && rm code-server_3.12.0_amd64.deb
+RUN wget https://github.com/cdr/code-server/releases/download/v4.92.2/code-server_4.92.2_amd64.deb \
+    && dpkg -i code-server_4.92.2_amd64.deb \
+    && rm code-server_4.92.2_amd64.deb
 
 RUN code-server --install-extension ms-toolsai.jupyter \
     && code-server --install-extension Ikuyadeu.r
