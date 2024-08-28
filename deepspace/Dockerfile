@@ -1,11 +1,8 @@
-# 使用 ARG 指令来设置 CUDA 版本
 ARG CUDA_VERSION=12.6.0
 
-# 使用 NVIDIA CUDA 基础镜像，版本可以在构建时指定
 FROM nvidia/cuda:${CUDA_VERSION}-base-ubuntu24.04
 
-# 避免交互式提示
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
@@ -17,7 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
     && bash /tmp/miniconda.sh -b -p /opt/conda \
     && rm /tmp/miniconda.sh \
-    && /opt/conda/bin/conda clean -tipsy
+    && /opt/conda/bin/conda clean -a -y
 
 ENV PATH=/opt/conda/bin:$PATH
 
