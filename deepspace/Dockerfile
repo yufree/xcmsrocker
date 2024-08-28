@@ -11,26 +11,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh \
-    && bash /tmp/miniconda.sh -b -p /opt/conda \
-    && rm /tmp/miniconda.sh \
-    && /opt/conda/bin/conda clean -a -y
-
-ENV PATH=/opt/conda/bin:$PATH
-
-RUN conda create -n gpu python=3.12 -y \
-    && conda install -n gpu -c conda-forge jupyter ipykernel tables h5py numpy pandas scipy scikit-learn joblib matplotlib cupy \
-    && conda clean -afy
-
-RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
-    && add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
-    && apt-get update && apt-get install -y --no-install-recommends \
-    r-base r-base-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && /opt/conda/bin/conda run -n gpu R -e "install.packages(c('IRkernel', 'tidyverse'), repos='http://cran.rstudio.com/')" \
-    && /opt/conda/bin/conda run -n gpu R -e "IRkernel::installspec(user = FALSE)"
-
 WORKDIR /workspace
 
 RUN wget https://github.com/cdr/code-server/releases/download/v4.92.2/code-server_4.92.2_amd64.deb \
