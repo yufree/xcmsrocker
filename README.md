@@ -41,7 +41,7 @@ Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9AC
 
 Step 2-6 could be visualized:
 
-<img src="https://yufree.github.io/presentation/figure/pmdda.gif" width="600">
+<img src="https://yufree.github.io/presentation/figure/pmdda.gif" width="600" />
 
 ## Packages
 
