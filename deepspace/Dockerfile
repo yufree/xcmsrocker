@@ -25,25 +25,11 @@ RUN wget --quiet https://github.com/conda-forge/miniforge/releases/latest/downlo
 
 # Add Miniforge to PATH
 ENV PATH="/opt/miniforge3/bin:${PATH}"
-
-# Create the conda environment 'timsconvert' with Python 3.11
-RUN conda create -yn timsconvert python=3.11
-
-# Set the SHELL to run subsequent commands within the 'timsconvert' environment
-# This effectively "activates" the environment for the following RUN instructions
-SHELL ["conda", "run", "-n", "timsconvert", "/bin/bash", "-c"]
-
-# Python package installations (will now run inside the 'timsconvert' environment)
 RUN pip install --upgrade pip
-
-# Clone and install timsconvert and other specified Python packages
-RUN pip install git+https://github.com/gtluu/timsconvert
 RUN pip install h5py pandas numpy matplotlib umap-learn
-
-# Clean up the cloned timsconvert directory if not needed in the final image
-# RUN rm -rf /opt/timsconvert
 
 # Clean up conda cache to reduce image size
 RUN conda clean --all -y
 
 WORKDIR /
+
