@@ -3,7 +3,7 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 # R packages installation
 RUN apt-get update \
-  && R -e "BiocManager::install(c('Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','dbscan','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetWork','shinydashboard'))" \
+  && R -e "BiocManager::install(c('Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','dbscan','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetwork','shinydashboard'))" \
   && installGithub.r \
   yufree/rmwf \
   yufree/enviGCMS \
