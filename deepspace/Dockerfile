@@ -1,9 +1,9 @@
 FROM rocker/geospatial:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
-# R packages installation (remains the same)
+# R packages installation
 RUN apt-get update \
-  && R -e "BiocManager::install(c('duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','patchwork','ggridges','pheatmap','distances','ropls','visNetWork','shinydashboard'))" \
+  && R -e "BiocManager::install(c('Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','dbscan','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetWork','shinydashboard'))" \
   && installGithub.r \
   yufree/rmwf \
   yufree/enviGCMS \
