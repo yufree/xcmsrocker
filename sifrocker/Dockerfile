@@ -17,7 +17,6 @@ RUN apt-get update \
   && install2.r --error \
     ChemoSpec \
     webchem \
-    RAMClustR \
     InterpretMSSpectrum \
     tcltk2 \
     plotly \
@@ -30,6 +29,7 @@ RUN apt-get update \
     isva \ 
     h2o \
   && installGithub.r \
+    cbroeckl/RAMClustR \
     rwehrens/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
     KechrisLab/MSPrep \
