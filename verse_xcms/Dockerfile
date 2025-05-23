@@ -4,6 +4,7 @@ MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN R -e "install.packages(c('Autotuner','XMLSchema','SSOAP','metfRag','xMSannotator'), repos = 'https://yufree.github.io/drat',type = 'source')"
 RUN apt-get update \
   && installGithub.r \
+    cbroeckl/RAMClustR \
     rwehrens/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
     KechrisLab/MSPrep \
