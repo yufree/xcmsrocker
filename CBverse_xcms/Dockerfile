@@ -13,7 +13,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone'))" \
   && install2.r --error \
-    RAMClustR \
     ChemoSpec \
     webchem \
     InterpretMSSpectrum \
