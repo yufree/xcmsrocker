@@ -17,8 +17,8 @@ RUN apt-get update \
     multcomp \
     isva \ 
     h2o \
-    RAMClustR \
   && installGithub.r \
+    cbroeckl/RAMClustR \
     rwehrens/ChemometricsWithR \
     rwehrens/BatchCorrMetabolomics \
     KechrisLab/MSPrep \
