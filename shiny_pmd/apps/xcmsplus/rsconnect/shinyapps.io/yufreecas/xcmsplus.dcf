@@ -1,0 +1,13 @@
+name: xcmsplus
+title: xcmsplus
+username:
+account: yufreecas
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 201547
+bundleId: 1381102
+url: https://yufreecas.shinyapps.io/xcmsplus/
+when: 1526666770.56393
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|RMTplot.pdf|data/QC_food_1.mzXML|data/QC_food_2.mzXML|data/QC_food_3.mzXML|data/test.csv|data/test.mzXML

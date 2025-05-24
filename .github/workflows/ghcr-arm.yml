@@ -1,8 +1,4 @@
-name: Docker xcmsrocker arm0
-
-on:
-  push:
-    branches: [ master ]
+name: Docker arm xcmsrocker
 
 env:
   REGISTRY: ghcr.io
@@ -17,15 +13,16 @@ jobs:
     steps:
     
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v2
         with:
+          image: tonistiigi/binfmt:latest
           platforms: arm64
-            
+          
       - name: Check Out Repo 
         uses: actions/checkout@v3
 
       - name: Log in to the Container registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -39,18 +36,17 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: |
                 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-                ${{ env.IMAGE_NAME }}
-          tags: arm0
-      - name: Setup r2u
-        uses: eddelbuettel/github-actions/r2u-setup@master
+                ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          tags: arm
+
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: ./armrocker0
+          context: ./armrocker
           platforms: linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}

@@ -1,8 +1,5 @@
 name: Docker xcmsrocker sif
 
-on:
-  push:
-    branches: [ master ]
 
 jobs:
   docker:

@@ -1,9 +1,5 @@
 name: Docker iml
 
-on:
-  push:
-    branches: [ master ]
-
 jobs:
   docker:
     runs-on: ubuntu-latest

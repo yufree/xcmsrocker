@@ -1,0 +1,149 @@
+---
+title: "Paired Mass Distance(PMD) Network Analysis"
+author: "Miao Yu"
+date: "`r Sys.Date()`"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Inputs
+
+### Data format
+
+```{r echo=FALSE}
+knitr::include_graphics('https://yufree.github.io/presentation/figure/democsv.png')
+```
+
+The uploaded file should be one csv file. The first column should be peak ID. The second column should be mass to charge ratio of peaks. The third column should be retention time in seconds. The other column should be peaks intensities in each samples. The header should be 'mz', 'rt', and sample names. The second row should include group information of each sample. Such file could be output by `getcsv` function for a 'mzrt' object from enviGCMS package. However, it's also easy to manually write one csv file as shown above. Here is the demo csv [file](https://raw.githubusercontent.com/yufree/democode/master/data/tbbpamzrt.csv).
+
+```{r chain, echo=FALSE}
+inputPanel(
+  fileInput('file',label = 'Upload csv file with m/z, retention time, peaklist and group info',accept = c('.csv')),
+  radioButtons('digits', label = 'Digits of mass to charge ratio',c(2,3),selected = 2),
+  sliderInput("rtcutoff", label = "Cutoff for retention time cluster analysis:",
+              min = 1, max = 20, value = 10, step = 1),
+  sliderInput("corcutoff", label = "Cutoff for the correlation coefficient",
+              min = 0, max = 1, value = NULL, step = 0.1),
+  textInput('diff', label = 'PMD set', value='2.02,15.99,18.01,14.02,162.05'),
+  textInput('mass', label = 'Compound ion(s)', value= '542.7446'),
+  textInput('formula', label = 'Compound Formula (alpha)', value= 'C15H11Br4O2'),
+  sliderInput("ppm", label = "mass accuracy of formula or mass in ppm",
+              min = 0, max = 100, value = 20, step = 1)
+)
+```
+
+## Data analysis
+
+```{r output,echo=FALSE}
+options(shiny.maxRequestSize = 100*1024^2)
+library(pmd)
+datainput <- reactive({
+                if (!is.null(input$file)){
+                        dataraw <- read.csv(input$file$datapath,skip = 1)
+                        mz <- dataraw[,2]
+                        rt <- dataraw[,3]
+                        data <- dataraw[,-c(1:3)]
+                        group <- data.frame(t(read.csv(input$file$datapath,nrows = 1)[-(1:3)]))
+                        colnames(group) <- c(1:ncol(group))
+                        colnames(data) <- rownames(group)
+                        rownames(data) <- dataraw[,1]
+                        return(list(data=data,mz=mz,rt=rt,group=group))
+                }else{
+                        return(NULL)
+                }
+        })
+
+datachain <- reactive({
+        list <- datainput()
+        if(!is.null(list)){
+                x <- as.numeric(unlist(strsplit(input$diff,",")))
+                if(length(input$mass)==0){
+                  y <- as.numeric(unlist(strsplit(input$mass,",")))
+                  list <- getchain(list,rtcutoff = as.numeric(input$rtcutoff),accuracy = 4,digits=as.numeric(input$digits), mass = y, diff = x, corcutoff=as.numeric(input$corcutoff))
+                }else{
+                  y <- unlist(strsplit(input$formula,","))
+                  list <- getchain(list,rtcutoff = as.numeric(input$rtcutoff),accuracy = 4,digits=as.numeric(input$digits), mass = y, diff = x, corcutoff=as.numeric(input$corcutoff), ppm = input$ppm)
+                }
+        }
+        return(list)
+})
+
+stdcsv <- reactive({
+        list <- datachain()
+        data <- list$sdac
+        return(data)
+})
+# show the download
+downloadHandler('net.csv', content = function(file) {
+                data <- stdcsv()
+                write.csv(data, file)
+        })
+
+```
+
+## Data visulization
+
+```{r output2,echo=FALSE,message=F,warning=F}
+actionButton("go", "Get figure")
+library(igraph)
+library(RColorBrewer)
+getmass <- function(data) {
+        if (grepl('-', data)) {
+                name <- unlist(strsplit(data, '-'))
+                iso1 <-
+                        rcdk::get.isotopes.pattern(rcdk::get.formula(name[1]))
+                iso2 <-
+                        rcdk::get.isotopes.pattern(rcdk::get.formula(name[2]))
+                cus <-
+                        as.numeric(iso1[max(iso1[, 2]), 1]) - as.numeric(iso2[max(iso2[, 2]), 1])
+        } else{
+                iso <- rcdk::get.isotopes.pattern(rcdk::get.formula(data))
+                cus <-
+                        as.numeric(iso[max(iso[, 2]), 1])
+        }
+        return(cus)
+}
+p <- eventReactive(input$go, {
+        list <- datachain()
+        x <- as.numeric(unlist(strsplit(input$diff,",")))
+        if(length(input$mass)==0){
+          y <- as.numeric(unlist(strsplit(input$mass,",")))
+        }else{
+          y <- unlist(strsplit(input$formula,","))
+          mass <- unlist(Map(getmass, y))
+                massup <- mass+mass*input$ppm/10e6
+                massdown <- mass-mass*input$ppm/10e6
+                up <- sapply(Map(function(x)
+                        x < massup, list$mz), function(x)
+                                x || x)
+                down <- sapply(Map(function(x)
+                        x > massdown, list$mz), function(x)
+                                x || x)
+                mass <- list$mz[up & down]
+                y <- unique(round(mass,4))
+        }
+        pal <- (grDevices::colorRampPalette(rev(
+                        RColorBrewer::brewer.pal(11,
+                                                 "RdYlBu")
+                )))(length(x))
+        if(!is.null(list)){
+                net <- graph_from_data_frame(list$sdac,directed = F)
+                plot(net,vertex.size =5,edge.width = 5,edge.color = pal[as.numeric(as.factor(E(net)$diff2))],vertex.label=ifelse(round(as.numeric(V(net)$name),4) %in% y,'Compound',NA),vertex.label.dist=1,vertex.color=ifelse(round(as.numeric(V(net)$name),4) %in% y,'red','black'),main = 'PMD network')
+legend("topright",bty = "n",
+       legend=unique(E(net)$diff2),
+       fill=unique(pal[as.numeric(as.factor(E(net)$diff2))]), border=NA,horiz = F)
+                }else{
+                plot(1,1,type = 'n')
+        }
+  })
+
+renderPlot({
+  p()
+  })
+```
+
+

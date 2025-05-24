@@ -1,6 +1,6 @@
-name: Docker deepspace
+name: Docker metaborocker
 
-  
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -23,6 +23,9 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./deepspace
+          context: ./metaborocker
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/deepspace:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/metaborocker:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
