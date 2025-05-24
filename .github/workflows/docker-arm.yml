@@ -45,8 +45,6 @@ jobs:
                 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                 ${{ env.IMAGE_NAME }}
           tags: arm0
-      - name: Setup r2u
-        uses: eddelbuettel/github-actions/r2u-setup@master
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
