@@ -28,7 +28,26 @@ RUN \
         python3-gi \
         python3-apt \
         make \
-        lsb-release && \
+        lsb-release \
+        libxml2-dev \
+        libcairo2-dev \
+        libgit2-dev \
+        default-libmysqlclient-dev \
+        libpq-dev \
+        libsasl2-dev \
+        libsqlite3-dev \
+        libssh2-1-dev \
+        libxtst6 \
+        libcurl4-openssl-dev \
+        libharfbuzz-dev \
+        libfribidi-dev \
+        libfreetype6-dev \
+        libpng-dev \
+        libtiff5-dev \
+        libjpeg-dev \
+        unixodbc-dev \
+        xz-utils
+        && \
     # Add GPG keys (Note: apt-key is deprecated)
     wget -q -O- https://eddelbuettel.github.io/r2u/assets/dirk_eddelbuettel_key.asc | tee /etc/apt/trusted.gpg.d/cranapt_key.asc && \
     wget -q -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
@@ -75,6 +94,9 @@ RUN \
     else \
         echo "Warning: Littler examples directory not found, symlinks not created." >&2; \
     fi && \
+    echo "options(bspm.version.check=FALSE)" >> /etc/R/Rprofile.site \
+        && echo "suppressMessages(bspm::enable())" >> /etc/R/Rprofile.site \
+        && echo 'APT::Install-Recommends "false";' > /etc/apt/apt.conf.d/90local-no-recommends \
     # Allow writing in R package default directory (for source installs if bspm misses a binary)
     # This might be /usr/local/lib/R/site-library or /usr/lib/R/site-library depending on R setup
     if [ -d "/usr/local/lib/R/site-library" ]; then chmod -R a+w /usr/local/lib/R/site-library; fi && \
@@ -83,5 +105,5 @@ RUN \
     rm -rf /var/lib/apt/lists/*
 
 RUN /rocker_scripts/install_pandoc.sh
-RUN /rocker_scripts/install_tidyverse.sh
 RUN /rocker_scripts/install_quarto.sh
+RUN /rocker_scripts/install_tidyverse.sh
