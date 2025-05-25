@@ -93,10 +93,10 @@ RUN \
         ln -sf /usr/lib/R/site-library/littler/examples/update.r /usr/local/bin/update.r; \
     else \
         echo "Warning: Littler examples directory not found, symlinks not created." >&2; \
-    fi && \
+    fi \
     echo "options(bspm.version.check=FALSE)" >> /etc/R/Rprofile.site \
-        && echo "suppressMessages(bspm::enable())" >> /etc/R/Rprofile.site \
-        && echo 'APT::Install-Recommends "false";' > /etc/apt/apt.conf.d/90local-no-recommends \
+    echo "suppressMessages(bspm::enable())" >> /etc/R/Rprofile.site \
+    echo 'APT::Install-Recommends "false";' > /etc/apt/apt.conf.d/90local-no-recommends \
     # Allow writing in R package default directory (for source installs if bspm misses a binary)
     # This might be /usr/local/lib/R/site-library or /usr/lib/R/site-library depending on R setup
     if [ -d "/usr/local/lib/R/site-library" ]; then chmod -R a+w /usr/local/lib/R/site-library; fi && \
