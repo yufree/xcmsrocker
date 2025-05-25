@@ -1,4 +1,4 @@
-FROM jmgirard/rstudio2u:lastest
+FROM jmgirard/rstudio2u:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
