@@ -9,10 +9,29 @@ RUN apt-get update \
     ## tcl tk support
     tcl8.6-dev \
     tk8.6-dev \
+    r-bioc-lumi \
+    r-bioc-mixomics \
+    r-bioc-siggenes \
+    r-cran-wgcna \
+    r-bioc-keggrest \
+    r-bioc-globaltest \
+    r-bioc-biobase \
+    r-bioc-affy \
+    r-bioc-methylumi \
+    r-bioc-genomicfeatures \
+    r-bioc-genomicranges \
+    r-bioc-annotate \
+    r-bioc-preprocesscore \
+    r-bioc-annotationdbi \
+    r-bioc-biocparallel \
+    r-bioc-multtest \
+    r-bioc-impute \
+    r-bioc-go.db \
+    r-bioc-biostrings \
   && rm -rf /var/lib/apt/lists/* \
   && R -e "install.packages('BiocManager')" \
+  && R -e "BiocManager::install(c('BiocParallel','xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone'))" \
   && R -e "install.packages(c('Autotuner','XMLSchema','SSOAP','metfRag','xMSannotator'), repos = 'https://yufree.github.io/drat',type = 'source')" \
-  && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone'))" \
   && install2.r --error \
     ChemoSpec \
     webchem \
