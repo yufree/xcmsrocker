@@ -85,26 +85,3 @@ RUN \
 RUN /rocker_scripts/install_pandoc.sh
 RUN /rocker_scripts/install_tidyverse.sh
 RUN /rocker_scripts/install_quarto.sh
-
-# Original system dependencies installation
-RUN apt-get update -qq && \
-    apt-get install -y --no-install-recommends \
-        libnetcdf-dev \
-        ## rgl support
-        libgl1-mesa-dev \
-        libglu1-mesa-dev \
-        ## tcl tk support
-        tcl8.6-dev \
-        tk8.6-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Original R package installations
-# With bspm enabled, R package installations might try to use system binaries if available via apt from r2u.
-RUN R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone'))" && \
-    R -e "install.packages(c('ChemoSpec', 'webchem', 'InterpretMSSpectrum', 'tcltk2', 'plotly', 'caret', 'caretEnsemble', 'pROC', 'gWQS', 'enviGCMS', 'pmd', 'UpSetR', 'multcomp', 'isva', 'h2o', 'table1', 'flextable'))" && \
-    R -e "install.packages(c('Autotuner','XMLSchema','SSOAP','metfRag','xMSannotator'), repos = 'https://yufree.github.io/drat',type = 'source')" &&\
-    rm -rf /tmp/downloaded_packages && \
-    # Strip shared object files to reduce size (from original Dockerfile)
-    # Add checks to prevent errors if no .so files are found
-    if compgen -G "/usr/local/lib/R/site-library/*/libs/*.so" > /dev/null; then strip /usr/local/lib/R/site-library/*/libs/*.so; fi && \
-    if compgen -G "/usr/lib/R/site-library/*/libs/*.so" > /dev/null; then strip /usr/lib/R/site-library/*/libs/*.so; fi
