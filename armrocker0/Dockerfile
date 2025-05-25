@@ -10,7 +10,7 @@ RUN apt-get update \
     tcl8.6-dev \
     tk8.6-dev \
   && rm -rf /var/lib/apt/lists/* \
-  && R -e "install.package('BiocManager')" \
+  && R -e "install.packages('BiocManager')" \
   && R -e "install.packages(c('Autotuner','XMLSchema','SSOAP','metfRag','xMSannotator'), repos = 'https://yufree.github.io/drat',type = 'source')" \
   && R -e "BiocManager::install(c('xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone'))" \
   && install2.r --error \
