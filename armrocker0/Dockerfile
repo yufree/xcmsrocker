@@ -1,8 +1,8 @@
-FROM rocker/rstudio:latest
-MAINTAINER "Miao Yu" yufreecas@gmail.com
-COPY scripts/r2u_setup.sh /rocker_scripts/r2u_setup.sh
-RUN /rocker_scripts/r2u_setup.sh
-
+FROM jmgirard/rstudio2u:latest
+LABEL org.label-schema.license="GPL-2.0" \
+      org.label-schema.vendor="xcmsrocker Project" \
+      maintainer="Miao Yu <yufreecas@gmail.com>"
+      
 COPY scripts/install_tidyverse.sh /rocker_scripts/install_tidyverse.sh
 RUN /rocker_scripts/install_tidyverse.sh
 
