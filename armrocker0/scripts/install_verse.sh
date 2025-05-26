@@ -96,7 +96,6 @@ install2.r --error --deps TRUE --skipinstalled -n "$NCPUS" \
     bookdown \
     distill \
     rticles \
-    rmdshower \
     rJava \
     xaringan
 
