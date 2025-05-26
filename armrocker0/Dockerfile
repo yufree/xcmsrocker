@@ -1,35 +1,15 @@
-FROM jmgirard/rstudio2u:latest
+FROM rocker/rstudio:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
-RUN R -e "install.packages('BiocManager',dependencies=T)" \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends \
-    libnetcdf-dev \
-    ## rgl support
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    ## tcl tk support
-    tcl8.6-dev \
-    tk8.6-dev \
-  && rm -rf /var/lib/apt/lists/* \
-  && R -e "BiocManager::install(c('BiocParallel','xcms','IPO','sva','WGCNA', 'KEGGREST', 'KEGGgraph', 'SSPA','Rdisop', 'qvalue', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','ChemmineR','metaMS', 'msPurity', 'mixOmics', 'fgsea', 'Rita','lumi','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone'))" \
-  && R -e "install.packages(c('Autotuner','XMLSchema','SSOAP','metfRag','xMSannotator'), repos = 'https://yufree.github.io/drat',type = 'source')" \
-  && install2.r --error \
-    ChemoSpec \
-    webchem \
-    InterpretMSSpectrum \
-    tcltk2 \
-    plotly \
-    caret \ 
-    caretEnsemble \
-    pROC \
-    gWQS \
-    enviGCMS \
-    pmd \
-    UpSetR \
-    multcomp \
-    isva \ 
-    h2o \
-    table1 \
-    flextable \
-    && rm -rf /tmp/downloaded_packages \
-    && strip /usr/local/lib/R/site-library/*/libs/*.so
+
+COPY scripts/r2u_setup.sh /rocker_scripts/r2u_setup.sh
+RUN /rocker_scripts/r2u_setup.sh
+
+COPY scripts/install_tidyverse.sh /rocker_scripts/install_tidyverse.sh
+RUN /rocker_scripts/install_tidyverse.sh
+
+ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
+ENV PATH="$PATH:/usr/local/texlive/bin/linux"
+
+COPY scripts/install_verse.sh /rocker_scripts/install_verse.sh
+COPY scripts/install_texlive.sh /rocker_scripts/install_texlive.sh
+RUN /rocker_scripts/install_verse.sh
