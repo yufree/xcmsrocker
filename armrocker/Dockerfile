@@ -12,7 +12,7 @@ RUN apt-get update \
     tcl8.6-dev \
     tk8.6-dev \
   && rm -rf /var/lib/apt/lists/* \
-  && install.r BiocManager
+  && install.r BiocManager \
   && installBioc.r --error --skipinstalled \
     xcms \
     IPO \
