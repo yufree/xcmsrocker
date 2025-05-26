@@ -58,6 +58,6 @@ RUN apt-get update \
     h2o \
     table1 \
     flextable \
-    && rm -rf /tmp/downloaded_packages 
+   && rm -rf /tmp/downloaded_packages 
     
     
