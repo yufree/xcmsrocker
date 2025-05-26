@@ -38,9 +38,7 @@ echo "suppressMessages(bspm::enable())" | sudo tee -a /etc/R/Rprofile.site
 echo "options(bspm.version.check="${BSPM_VERSION_CHECK:-TRUE}")" | sudo tee -a /etc/R/Rprofile.site
 cd /usr/local/bin
 sudo ln -s /usr/lib/R/site-library/littler/examples/install.r .
-sudo ln -s /usr/lib/R/site-library/littler/examples/install2.r .
 sudo ln -s /usr/lib/R/site-library/littler/examples/installDeps.r .
-sudo ln -s /usr/lib/R/site-library/littler/examples/installGithub.r .
 sudo ln -s /usr/lib/R/site-library/littler/examples/installRub.r .
 sudo ln -s /usr/lib/R/site-library/littler/examples/rcc.r .
 sudo ln -s /usr/lib/R/site-library/littler/examples/update.r .
