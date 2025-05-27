@@ -13,14 +13,14 @@ RUN installBioc.r --deps TRUE --error --skipinstalled \
     annotate \
     affy \
     methylumi \
-    GenomicFeatures \
     GenomicRanges \
-    annotate \
     preprocessCore \
     AnnotationDbi \
     multtest 
     
 RUN installBioc.r --deps TRUE --error --skipinstalled \
+    GenomicFeatures \
+    annotate \
     xcms \
     IPO \
     sva \
