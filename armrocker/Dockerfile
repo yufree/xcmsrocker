@@ -15,8 +15,6 @@ RUN install2.r --error \
     caretEnsemble \
     pROC \
     gWQS \
-    enviGCMS \
-    pmd \
     UpSetR \
     multcomp \
     isva \ 
