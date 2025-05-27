@@ -9,18 +9,20 @@ RUN apt-get update \
 RUN installBioc.r --deps TRUE --error --skipinstalled \
     Biobase \
     BiocParallel \
-    Biostrings \
+    Biostrings 
+
+RUN installBioc.r --deps TRUE --error --skipinstalled \ 
     annotate \
     affy \
     methylumi \
     GenomicRanges \
     preprocessCore \
     AnnotationDbi \
-    multtest 
+    multtest \ 
+    GenomicFeatures
     
 RUN installBioc.r --deps TRUE --error --skipinstalled \
-    GenomicFeatures \
-    annotate \
+    
     xcms \
     IPO \
     sva \
