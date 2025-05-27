@@ -2,10 +2,6 @@ FROM yufree/xcmsrocker:arm0
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    libmagick++-dev
-
 RUN Rscript -e 'bspm::disable()' \
     && installBioc.r --deps TRUE --error --skipinstalled \
     xcms \
