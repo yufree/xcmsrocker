@@ -5,23 +5,7 @@ LABEL org.label-schema.license="GPL-2.0" \
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libmagick++-dev
-RUN install2.r --error \
-    ChemoSpec \
-    webchem \
-    InterpretMSSpectrum \
-    tcltk2 \
-    plotly \
-    caret \ 
-    caretEnsemble \
-    pROC \
-    gWQS \
-    UpSetR \
-    multcomp \
-    isva \ 
-    h2o \
-    table1 \
-    flextable \
-  && installBioc.r --error --skipinstalled \
+RUN installBioc.r --error --skipinstalled \
     xcms \
     IPO \
     sva \
