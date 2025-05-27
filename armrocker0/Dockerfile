@@ -9,7 +9,7 @@ ENV PATH="$PATH:/usr/local/texlive/bin/linux"
 COPY scripts/install_tidyverse.sh /rocker_scripts/install_tidyverse.sh
 COPY scripts/install_verse.sh /rocker_scripts/install_verse.sh
 COPY scripts/install_texlive.sh /rocker_scripts/install_texlive.sh
-
+RUN chmod +x /rocker_scripts/*.sh
 RUN /rocker_scripts/install_tidyverse.sh
 RUN /rocker_scripts/install_verse.sh
 RUN install2.r --error \
