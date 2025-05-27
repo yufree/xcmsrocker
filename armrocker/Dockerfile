@@ -12,7 +12,25 @@ RUN apt-get update \
     tcl8.6-dev \
     tk8.6-dev \
   && rm -rf /var/lib/apt/lists/* \
-  && install.r BiocManager \
+  && install2.r --error --skipinstalled \
+    BiocManager \
+    ChemoSpec \
+    webchem \
+    InterpretMSSpectrum \
+    tcltk2 \
+    plotly \
+    caret \ 
+    caretEnsemble \
+    pROC \
+    gWQS \
+    enviGCMS \
+    pmd \
+    UpSetR \
+    multcomp \
+    isva \ 
+    h2o \
+    table1 \
+    flextable \
   && installBioc.r --error --skipinstalled \
     xcms \
     IPO \
@@ -40,24 +58,6 @@ RUN apt-get update \
     MsBackendMsp \
     genefilter \
     metapone \
-  && install2.r --error --skipinstalled \
-    ChemoSpec \
-    webchem \
-    InterpretMSSpectrum \
-    tcltk2 \
-    plotly \
-    caret \ 
-    caretEnsemble \
-    pROC \
-    gWQS \
-    enviGCMS \
-    pmd \
-    UpSetR \
-    multcomp \
-    isva \ 
-    h2o \
-    table1 \
-    flextable \
    && rm -rf /tmp/downloaded_packages 
     
     
