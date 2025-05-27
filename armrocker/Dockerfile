@@ -1,10 +1,25 @@
-FROM yufree/xcmsrocker:arm
+FROM yufree/xcmsrocker:arm0
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
-RUN mkdir -p /etc/R && touch /etc/R/Rprofile.site
-RUN sed -i '/suppressMessages(bspm::enable())/i options(bspm.sudo = TRUE)' /etc/R/Rprofile.site
-RUN Rscript -e "install.packages(c('ChemoSpec', 'webchem', 'InterpretMSSpectrum', 'tcltk2', 'plotly', 'caret', 'caretEnsemble', 'pROC', 'gWQS', 'UpSetR', 'multcomp', 'isva', 'h2o', 'table1', 'flextable'))" \
+RUN install2.r --error \
+    ChemoSpec \
+    webchem \
+    InterpretMSSpectrum \
+    tcltk2 \
+    plotly \
+    caret \ 
+    caretEnsemble \
+    pROC \
+    gWQS \
+    enviGCMS \
+    pmd \
+    UpSetR \
+    multcomp \
+    isva \ 
+    h2o \
+    table1 \
+    flextable \
   && installBioc.r --error --skipinstalled \
     xcms \
     IPO \
@@ -32,6 +47,22 @@ RUN Rscript -e "install.packages(c('ChemoSpec', 'webchem', 'InterpretMSSpectrum'
     MsBackendMsp \
     genefilter \
     metapone \
+   && installGithub.r \
+     cbroeckl/RAMClustR \
+     rwehrens/ChemometricsWithR \
+     rwehrens/BatchCorrMetabolomics \
+     KechrisLab/MSPrep \
+     yufree/MetDIA \
+     ropensci/rfigshare \
+     Aurametrix/R/GRAPH/MetabNet \
+     kuppal2/xMWAS \
+     yufree/x13cms \
+     aberHRML/classyfireR \
+     yufree/enviGCMS \
+     yufree/pmd \
+     yufree/mzrtsim \
+     yufree/rmwf \
+     lifs-tools/rmzTab-m \
    && rm -rf /tmp/downloaded_packages 
     
     
