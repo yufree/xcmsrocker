@@ -6,23 +6,8 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libmagick++-dev
 
-RUN installBioc.r --deps TRUE --error --skipinstalled \
-    Biobase \
-    BiocParallel \
-    Biostrings 
-
-RUN installBioc.r --deps TRUE --error --skipinstalled \ 
-    annotate \
-    affy \
-    methylumi \
-    GenomicRanges \
-    preprocessCore \
-    AnnotationDbi \
-    multtest \ 
-    GenomicFeatures
-    
-RUN installBioc.r --deps TRUE --error --skipinstalled \
-    
+RUN Rscript -e 'bspm::disable()' \
+    && installBioc.r --deps TRUE --error --skipinstalled \
     xcms \
     IPO \
     sva \
