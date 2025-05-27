@@ -2,6 +2,7 @@ FROM yufree/xcmsrocker:arm
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
+RUN sed -i '/suppressMessages(bspm::enable())/i options(bspm.sudo = TRUE)' /etc/R/Rprofile.site
 RUN install2.r --error --skipinstalled \
     ChemoSpec \
     webchem \
