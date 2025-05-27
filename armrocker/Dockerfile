@@ -2,11 +2,7 @@ FROM yufree/xcmsrocker:arm
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-    libmagick++-dev \
-  && rm -rf /var/lib/apt/lists/* \
-  && install2.r --error --skipinstalled \
+RUN install2.r --error --skipinstalled \
     ChemoSpec \
     webchem \
     InterpretMSSpectrum \
