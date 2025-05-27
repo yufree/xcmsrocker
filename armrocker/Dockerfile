@@ -2,6 +2,9 @@ FROM yufree/xcmsrocker:arm0
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libmagick++-dev
 RUN install2.r --error \
     ChemoSpec \
     webchem \
@@ -63,6 +66,7 @@ RUN install2.r --error \
      yufree/mzrtsim \
      yufree/rmwf \
      lifs-tools/rmzTab-m \
-   && rm -rf /tmp/downloaded_packages 
+   && rm -rf /tmp/downloaded_packages \
+   && strip /usr/local/lib/R/site-library/*/libs/*.so
     
     
