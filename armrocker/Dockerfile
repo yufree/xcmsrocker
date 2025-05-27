@@ -6,6 +6,18 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libmagick++-dev
 RUN installBioc.r --deps TRUE --error --skipinstalled \
+    Biobase \
+    BiocParallel \
+    Biostrings \
+    annotate \
+    affy \
+    methylumi \
+    GenomicFeatures \
+    GenomicRanges \
+    annotate \
+    preprocessCore \
+    AnnotationDbi \
+    multtest \
     xcms \
     IPO \
     sva \
