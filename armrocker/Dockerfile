@@ -4,16 +4,9 @@ LABEL org.label-schema.license="GPL-2.0" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    libnetcdf-dev \
-    ## rgl support
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    ## tcl tk support
-    tcl8.6-dev \
-    tk8.6-dev \
+    libmagick++-dev \
   && rm -rf /var/lib/apt/lists/* \
   && install2.r --error --skipinstalled \
-    BiocManager \
     ChemoSpec \
     webchem \
     InterpretMSSpectrum \
@@ -23,8 +16,6 @@ RUN apt-get update \
     caretEnsemble \
     pROC \
     gWQS \
-    enviGCMS \
-    pmd \
     UpSetR \
     multcomp \
     isva \ 
