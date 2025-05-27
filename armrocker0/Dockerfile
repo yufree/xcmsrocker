@@ -1,7 +1,11 @@
-FROM jmgirard/rstudio2u:latest
+FROM rocker/r-ver:latest as source
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
+
+FROM rocker/r2u:focal
+COPY --from=source /rocker_scripts /rocker_scripts
+RUN /rocker_scripts/install_rstudio.sh
 
 ENV CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="$PATH:/usr/local/texlive/bin/linux"
