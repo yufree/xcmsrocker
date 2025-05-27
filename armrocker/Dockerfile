@@ -2,7 +2,9 @@ FROM yufree/xcmsrocker:arm
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
-RUN Rscript -e "install.packages(c('ChemoSpec', 'webchem', 'InterpretMSSpectrum', 'tcltk2', 'plotly', 'caret', 'caretEnsemble', 'pROC', 'gWQS', 'UpSetR', 'multcomp', 'isva', 'h2o', 'table1', 'flextable'))" \
+RUN mkdir -p /etc/R && touch /etc/R/Rprofile.site
+RUN sed -i '/suppressMessages(bspm::enable())/i options(bspm.sudo = TRUE)' /etc/R/Rprofile.site
+RUN Rscript -e "install.packages(c('ChemoSpec', 'webchem', 'InterpretMSSpectrum', 'tcltk2', 'plotly', 'caret', 'caretEnsemble', 'pROC', 'gWQS', 'UpSetR', 'multcomp', 'isva', 'h2o', 'table1', 'flextable'))"
   && installBioc.r --error --skipinstalled \
     xcms \
     IPO \
