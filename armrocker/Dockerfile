@@ -5,6 +5,7 @@ LABEL org.label-schema.license="GPL-2.0" \
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     libmagick++-dev
+
 RUN installBioc.r --deps TRUE --error --skipinstalled \
     Biobase \
     BiocParallel \
@@ -17,7 +18,9 @@ RUN installBioc.r --deps TRUE --error --skipinstalled \
     annotate \
     preprocessCore \
     AnnotationDbi \
-    multtest \
+    multtest 
+    
+RUN installBioc.r --deps TRUE --error --skipinstalled \
     xcms \
     IPO \
     sva \
