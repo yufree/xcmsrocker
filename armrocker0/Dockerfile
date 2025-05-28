@@ -27,4 +27,6 @@ RUN install2.r --error \
     isva \ 
     h2o \
     table1 \
-    flextable 
+    flextable \
+    BiocManager
+RUN R -e "BiocManager::install(c('sva','Rdisop','KEGGgraph','ChemmineR', 'Rita','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone','qvalue','Rhdf5lib'))"
