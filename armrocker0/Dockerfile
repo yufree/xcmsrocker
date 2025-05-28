@@ -12,6 +12,9 @@ COPY scripts/install_texlive.sh /rocker_scripts/install_texlive.sh
 RUN chmod +x /rocker_scripts/*.sh
 RUN /rocker_scripts/install_tidyverse.sh
 RUN /rocker_scripts/install_verse.sh
+RUN apt-get update && apt-get install -y \
+    libnetcdf-dev \
+    && rm -rf /var/lib/apt/lists/*
 RUN install2.r --error \
     ChemoSpec \
     webchem \
@@ -28,5 +31,10 @@ RUN install2.r --error \
     h2o \
     table1 \
     flextable \
+    igraph \
+    matrixStats \
+    fastcluster \
+    locfit \
+    ncdf4 \
     BiocManager
 RUN R -e "BiocManager::install(c('sva','Rdisop','KEGGgraph','ChemmineR', 'Rita','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone','qvalue','Rhdf5lib'))"
