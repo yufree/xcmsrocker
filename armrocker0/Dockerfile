@@ -41,5 +41,8 @@ RUN install2.r --error \
     doSNOW \
     rgl \
     nleqslv \
+    statmod \
+    checkmate \
+    mclust \
     BiocManager
-RUN R -e "BiocManager::install(c('sva','Rdisop','KEGGgraph','ChemmineR', 'Rita','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone','qvalue','Rhdf5lib'))"
+RUN R -e "BiocManager::install(c('sva','Rdisop','KEGGgraph','ChemmineR', 'Rita','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone','qvalue','Rhdf5lib','RSpectra'))"
