@@ -44,5 +44,33 @@ RUN install2.r --error \
     statmod \
     checkmate \
     mclust \
+    rngtools \
+    R.oo \
+    doRNG \
+    rentrez \
+    R.utils \
+    rjson \
+    beanplot \
+    nor1mix \
+    reshape \
+    quadprog \
+    base64 \
+    MALDIquant \
+    estimability \
+    htmlTable \
+    viridis \
+    colorspace \
+    DEoptimR \
+    rsm \
+    dynamicTreeCut \
+    Hmisc \
+    doParallel \
+    corpcor \
+    dendextend \
+    scrime \
+    robustbase \
+    ellipse \
+    rARPACK \
+    gsignal \
     BiocManager
 RUN R -e "BiocManager::install(c('sva','Rdisop','KEGGgraph','ChemmineR', 'Rita','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone','qvalue','Rhdf5lib','RSpectra'))"
