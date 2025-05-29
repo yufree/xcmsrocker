@@ -36,5 +36,10 @@ RUN install2.r --error \
     fastcluster \
     locfit \
     ncdf4 \
+    VGAM \
+    pracma \
+    doSNOW \
+    rgl \
+    nleqslv \
     BiocManager
 RUN R -e "BiocManager::install(c('sva','Rdisop','KEGGgraph','ChemmineR', 'Rita','CompoundDb','MetaboAnnotation','MsBackendMgf','MsBackendMsp','genefilter','metapone','qvalue','Rhdf5lib'))"
