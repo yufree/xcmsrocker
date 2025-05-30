@@ -1,5 +1,8 @@
 name: Docker xcmsrocker
 
+on:
+  push:
+    branches: [ master ]
 
 env:
   REGISTRY: ghcr.io

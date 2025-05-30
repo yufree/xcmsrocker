@@ -1,5 +1,8 @@
 name: Docker deepspace
 
+on:
+  push:
+    branches: [ master ]
   
 jobs:
   docker:

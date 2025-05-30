@@ -1,5 +1,8 @@
 name: Docker metaborocker
 
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   docker:
