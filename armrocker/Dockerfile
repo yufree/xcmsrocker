@@ -2,7 +2,7 @@ FROM yufree/xcmsrocker:arm0
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vendor="xcmsrocker Project" \
       maintainer="Miao Yu <yufreecas@gmail.com>"
-RUN R -e "bspm::disable();BiocManager::install(c('xcms','IPO','WGCNA', 'KEGGREST', 'SSPA', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','metaMS', 'msPurity', 'mixOmics', 'fgsea','lumi'))" \
+RUN R -e "bspm::disable();Sys.setenv(MAKEFLAGS = '-j8');BiocManager::install(c('xcms','IPO','WGCNA', 'KEGGREST', 'SSPA', 'GlobalAncova', 'globaltest', 'siggenes', 'Rgraphviz','metaMS', 'msPurity', 'mixOmics', 'fgsea','lumi'))" \
     && installGithub.r \
      cbroeckl/RAMClustR \
      rwehrens/ChemometricsWithR \
