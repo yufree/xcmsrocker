@@ -150,6 +150,8 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 
 ## Similar projects
 
+- [OSSpRe](https://github.com/yufree/OSSpRe) workflow designed for mass spectrometry imaging.
+
 - [Meta-Workflow](https://bookdown.org/yufree/Metabolomics/) will update every year to check new software and concepts in metabolomics
 
 - For Java, you could select [MSDK](https://msdk.github.io/).
