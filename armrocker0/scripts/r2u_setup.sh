@@ -44,3 +44,6 @@ sudo ln -s /usr/lib/R/site-library/littler/examples/rcc.r .
 sudo ln -s /usr/lib/R/site-library/littler/examples/update.r .
 # in case a package gets install from source we allow writing in R package default
 sudo chmod -R a+w /usr/local/lib/R/site-library
+
+# Disable parallel processing in IPO to prevent unserialize connection errors
+echo 'options(IPO.parallel.method = "serial")' | sudo tee -a /etc/R/Rprofile.site
