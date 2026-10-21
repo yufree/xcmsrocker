@@ -26,7 +26,7 @@ RUN wget --quiet https://github.com/conda-forge/miniforge/releases/latest/downlo
 # Add Miniforge to PATH
 ENV PATH="/opt/miniforge3/bin:${PATH}"
 RUN pip install --upgrade pip
-RUN pip install h5py pandas numpy matplotlib umap-learn
+RUN pip install h5py pandas numpy matplotlib umap-learn opentims-bruker-bridge
 
 # Clean up conda cache to reduce image size
 RUN conda clean --all -y
