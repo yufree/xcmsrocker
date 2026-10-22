@@ -3,6 +3,11 @@ name: Docker xcmsrocker
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'CBverse_xcms/**'
+      - 'verse_xcms/**'
+      - '.github/workflows/docker-xcms.yml'
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
@@ -60,5 +65,3 @@ jobs:
           context: ./metaborocker
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/metaborocker:latest
-      
-      

@@ -1,7 +1,12 @@
 name: Docker iml
+
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'iml/**'
+      - '.github/workflows/iml.yml'
+  workflow_dispatch:
 
 jobs:
   docker:
@@ -28,6 +33,3 @@ jobs:
           context: ./iml
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/iml:latest
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}

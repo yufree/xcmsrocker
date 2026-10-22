@@ -3,6 +3,10 @@ name: Docker xcmsrocker arm
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'armrocker/**'
+      - '.github/workflows/docker-arm2.yml'
+  workflow_dispatch:
     
 env:
   REGISTRY: ghcr.io
@@ -54,4 +58,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          

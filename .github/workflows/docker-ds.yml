@@ -3,7 +3,11 @@ name: Docker deepspace
 on:
   push:
     branches: [ master ]
-  
+    paths:
+      - 'deepspace/**'
+      - '.github/workflows/docker-ds.yml'
+  workflow_dispatch:
+
 jobs:
   docker:
     runs-on: ubuntu-latest

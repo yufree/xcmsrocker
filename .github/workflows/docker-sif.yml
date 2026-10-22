@@ -3,6 +3,10 @@ name: Docker xcmsrocker sif
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'sifrocker/**'
+      - '.github/workflows/docker-sif.yml'
+  workflow_dispatch:
 
 jobs:
   docker:
