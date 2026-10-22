@@ -2,14 +2,14 @@ FROM rocker/geospatial:latest
 MAINTAINER "Miao Yu" yufreecas@gmail.com
 
 # R packages installation
-RUN apt-get update \
-  && R -e "BiocManager::install(c('Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','dbscan','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetwork','shinydashboard'))" \
+RUN apt-get update && apt-get install -y --no-install-recommends libzstd-dev \
+  && R -e "install.packages('opentimsr', repos = c('https://yufree.github.io/drat', 'https://cloud.r-project.org'))" \
+  && R -e "BiocManager::install(c('Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetwork','shinydashboard'))" \
   && installGithub.r \
   yufree/rmwf \
   yufree/enviGCMS \
   yufree/pmd \
   nhpatterson/RegCombIMS \
-  michalsta/opentims/opentimsr \
   yufree/HiTMaP \
   && R -e "devtools::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.3.0/SimpleITK_2.3.0_R_x86_64-pc-linux-gnu.tar.gz',build=F)" \
   && rm -rf /tmp/downloaded_packages \
@@ -32,4 +32,3 @@ RUN pip install h5py pandas numpy matplotlib umap-learn opentims-bruker-bridge
 RUN conda clean --all -y
 
 WORKDIR /
-
