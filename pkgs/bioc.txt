@@ -18,9 +18,6 @@ sva
 lumi
 genefilter
 qvalue
-siggenes
-GlobalAncova
-globaltest
 mixOmics
 # Pathways
 KEGGREST
@@ -28,4 +25,3 @@ KEGGgraph
 Rgraphviz
 fgsea
 metapone
-# SSPA has been removed from Bioconductor release

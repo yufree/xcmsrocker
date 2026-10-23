@@ -150,7 +150,6 @@ rmarkdown::draft("normalization.Rmd", template = "normalization", package = "rmw
 -   [pROC](https://cran.r-project.org/web/packages/pROC/index.html) Tools for visualizing, smoothing and comparing receiver operating characteristic (ROC curves). (Partial) area under the curve (AUC) can be compared with statistical tests based on U-statistics or bootstrap. Confidence intervals can be computed for (p)AUC or ROC curves.
 -   [gWQS](https://cran.r-project.org/web/packages/gWQS/index.html) Fits Weighted Quantile Sum (WQS) regressions for continuous, binomial, multinomial and count outcomes.
 -   [multcomp](https://cran.r-project.org/web/packages/multcomp/index.html) Simultaneous Inference in General Parametric Models to solve multiple comparisons issues
--   [h2o](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html) Automating the machine learning workflow
 -   [table1](https://cran.r-project.org/web/packages/table1/index.html) Tables of Descriptive Statistics in HTML
 
 ### Chemometrics

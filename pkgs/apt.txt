@@ -7,9 +7,6 @@ libnetcdf-dev
 libgl1-mesa-dev
 libglu1-mesa-dev
 libx11-dev
-# tcltk2
-tcl8.6-dev
-tk8.6-dev
 # igraph
 libglpk-dev
 # Rmpfr / gmp (multcomp, caret dependency tree)

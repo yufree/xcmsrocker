@@ -9,6 +9,7 @@ remotes
 ChemoSpec
 webchem
 InterpretMSSpectrum
+
 # Statistics / machine learning
 WGCNA
 caret
@@ -17,10 +18,9 @@ pROC
 gWQS
 multcomp
 isva
-h2o
 Rita
+
 # Visualisation / reporting
-tcltk2
 plotly
 UpSetR
 table1
