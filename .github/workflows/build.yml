@@ -1,0 +1,176 @@
+# Build & publish xcmsrocker images.
+#
+#   cran ─▶ bioc ─▶ sif ─▶ rstudio ─▶ metabo
+#
+# Each stage is its own job (native amd64 + arm64 runners), chained with
+# `needs`, so no stage ever builds on top of a stale base image.
+# Only the stages affected by a push are rebuilt:
+#   Dockerfile / scripts / workflows / pkgs/apt.txt / pkgs/cran.txt -> from cran
+#   pkgs/bioc.txt                                                   -> from bioc
+#   pkgs/github.txt / pkgs/drat.txt                                 -> from sif
+#   pkgs/python.txt                                                 -> metabo only
+# A monthly scheduled run rebuilds everything to follow rocker/r-ver:latest.
+# "Run workflow" (workflow_dispatch) lets you choose the first stage manually.
+name: Build xcmsrocker
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - Dockerfile
+      - pkgs/**
+      - scripts/**
+      - .github/workflows/build.yml
+      - .github/workflows/_stage.yml
+  schedule:
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+    inputs:
+      from_stage:
+        description: First stage to rebuild (later stages reuse previously pushed images)
+        type: choice
+        default: cran
+        options: [cran, bioc, sif, rstudio, metabo]
+
+# Never run two builds at once: stages exchange images through shared tags.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      start: ${{ steps.plan.outputs.start }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          FROM_STAGE: ${{ inputs.from_stage }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          idx() { case "$1" in cran) echo 0;; bioc) echo 1;; sif) echo 2;; rstudio) echo 3;; metabo) echo 4;; esac; }
+          start=0
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            start=$(idx "$FROM_STAGE")
+          elif [ "$EVENT" = "push" ] && [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$' \
+               && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            start=99
+            for f in $(git diff --name-only "$BEFORE" "$GITHUB_SHA"); do
+              case "$f" in
+                Dockerfile|scripts/*|.github/workflows/build.yml|.github/workflows/_stage.yml|pkgs/apt.txt|pkgs/cran.txt) s=0 ;;
+                pkgs/bioc.txt) s=1 ;;
+                pkgs/github.txt|pkgs/drat.txt) s=2 ;;
+                pkgs/python.txt) s=4 ;;
+                *) continue ;;
+              esac
+              [ "$s" -lt "$start" ] && start=$s
+            done
+          fi
+          echo "start=$start" >> "$GITHUB_OUTPUT"
+          echo "### First stage index: $start (0=cran 1=bioc 2=sif 3=rstudio 4=metabo)" >> "$GITHUB_STEP_SUMMARY"
+
+  cran:
+    needs: plan
+    if: ${{ needs.plan.outputs.start <= 0 }}
+    uses: ./.github/workflows/_stage.yml
+    with:
+      target: cran
+
+  bioc:
+    needs: [plan, cran]
+    if: ${{ !failure() && !cancelled() && needs.plan.outputs.start <= 1 }}
+    uses: ./.github/workflows/_stage.yml
+    with:
+      target: bioc
+      prev: cran
+
+  sif:
+    needs: [plan, bioc]
+    if: ${{ !failure() && !cancelled() && needs.plan.outputs.start <= 2 }}
+    uses: ./.github/workflows/_stage.yml
+    with:
+      target: sif
+      prev: bioc
+
+  rstudio:
+    needs: [plan, sif]
+    if: ${{ !failure() && !cancelled() && needs.plan.outputs.start <= 3 }}
+    uses: ./.github/workflows/_stage.yml
+    with:
+      target: rstudio
+      prev: sif
+
+  metabo:
+    needs: [plan, rstudio]
+    if: ${{ !failure() && !cancelled() && needs.plan.outputs.start <= 4 }}
+    uses: ./.github/workflows/_stage.yml
+    with:
+      target: metabo
+      prev: rstudio
+      # several Python wheels (e.g. pyopenms) are not reliably available for
+      # linux/arm64; add "arm64" here once they are.
+      arches: '["amd64"]'
+
+  # Merge per-arch images into multi-arch tags and push to Docker Hub + GHCR.
+  publish:
+    needs: [plan, sif, rstudio]
+    if: ${{ !failure() && !cancelled() && needs.plan.outputs.start <= 3 }}
+    runs-on: ubuntu-latest
+    env:
+      S: ghcr.io/${{ github.repository_owner }}/xcmsrocker-stages
+      GHCR: ghcr.io/${{ github.repository_owner }}/xcmsrocker
+      HUB: docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/xcmsrocker
+    steps:
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: xcmsrocker:sif
+        run: |
+          docker buildx imagetools create \
+            -t "$HUB:sif" -t "$GHCR:sif" \
+            "$S:sif-amd64" "$S:sif-arm64"
+      - name: xcmsrocker:latest (+ :arm alias for old instructions)
+        run: |
+          docker buildx imagetools create \
+            -t "$HUB:latest" -t "$HUB:arm" -t "$GHCR:latest" -t "$GHCR:arm" \
+            "$S:rstudio-amd64" "$S:rstudio-arm64"
+
+  publish-metabo:
+    needs: [plan, metabo]
+    if: ${{ !failure() && !cancelled() && needs.plan.outputs.start <= 4 }}
+    runs-on: ubuntu-latest
+    env:
+      S: ghcr.io/${{ github.repository_owner }}/xcmsrocker-stages
+      GHCR: ghcr.io/${{ github.repository_owner }}/metaborocker
+      HUB: docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/metaborocker
+    steps:
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: metaborocker:latest
+        run: |
+          docker buildx imagetools create \
+            -t "$HUB:latest" -t "$GHCR:latest" \
+            "$S:metabo-amd64"

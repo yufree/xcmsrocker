@@ -1,0 +1,10 @@
+# Python packages for the metabo stage (installed into /opt/venv, used via reticulate)
+h5py
+numpy
+pandas
+matplotlib
+umap-learn
+rdkit
+matchms
+pyopenms
+asari-metabolomics

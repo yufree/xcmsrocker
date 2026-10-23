@@ -1,0 +1,65 @@
+# Images that are not part of the xcmsrocker stage chain.
+# Each one is rebuilt only when its own directory changes.
+name: Build extras
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - extras/**
+      - .github/workflows/extras.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      images: ${{ steps.pick.outputs.images }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: pick
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          all='["deepspace","iml"]'
+          if [ "$EVENT" != "push" ] || [ -z "$BEFORE" ] || echo "$BEFORE" | grep -qE '^0+$' \
+             || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null \
+             || git diff --name-only "$BEFORE" "$GITHUB_SHA" | grep -q '^.github/workflows/extras.yml$'; then
+            echo "images=$all" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          imgs=$(git diff --name-only "$BEFORE" "$GITHUB_SHA" | sed -n 's#^extras/\([^/]*\)/.*#\1#p' | sort -u \
+                 | jq -R . | jq -sc .)
+          echo "images=$imgs" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: changes
+    if: ${{ needs.changes.outputs.images != '[]' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ${{ fromJSON(needs.changes.outputs.images) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          df -h /
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ./extras/${{ matrix.image }}
+          pull: true
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ matrix.image }}:latest

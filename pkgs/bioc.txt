@@ -1,0 +1,32 @@
+# Bioconductor packages (stage: bioc) — the heaviest compile step.
+# Prefix with `?` to make a package optional (failure won't break the build).
+
+# Peak picking / MS data
+xcms
+IPO
+metaMS
+msPurity
+MsBackendMgf
+MsBackendMsp
+# Annotation
+CompoundDb
+MetaboAnnotation
+Rdisop
+ChemmineR
+# Normalisation / statistics
+sva
+lumi
+genefilter
+qvalue
+siggenes
+GlobalAncova
+globaltest
+mixOmics
+# Pathways
+KEGGREST
+KEGGgraph
+Rgraphviz
+fgsea
+metapone
+# SSPA has been removed from the current Bioconductor release
+?SSPA

@@ -1,0 +1,24 @@
+# CRAN packages (stage: cran).
+# Dependencies are resolved automatically; list only packages users load.
+# Prefix with `?` to make a package optional (failure won't break the build).
+
+# Chemometrics / spectra
+ChemoSpec
+webchem
+InterpretMSSpectrum
+# Statistics / machine learning
+WGCNA
+caret
+caretEnsemble
+pROC
+gWQS
+multcomp
+isva
+h2o
+Rita
+# Visualisation / reporting
+tcltk2
+plotly
+UpSetR
+table1
+flextable

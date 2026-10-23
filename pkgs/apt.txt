@@ -1,0 +1,19 @@
+# System libraries installed on top of rocker/r-ver + install_tidyverse.sh.
+# One package per line; `#` starts a comment.
+
+# mzR / ncdf4
+libnetcdf-dev
+# rgl
+libgl1-mesa-dev
+libglu1-mesa-dev
+libx11-dev
+# tcltk2
+tcl8.6-dev
+tk8.6-dev
+# igraph
+libglpk-dev
+# Rmpfr / gmp (multcomp, caret dependency tree)
+libgmp-dev
+libmpfr-dev
+# nloptr and other packages compiled from source (notably on arm64)
+cmake

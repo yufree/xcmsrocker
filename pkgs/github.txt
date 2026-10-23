@@ -1,0 +1,20 @@
+# GitHub packages (stage: sif): owner/repo[/subdir][@ref]
+# Prefix with `?` to make a package optional (failure won't break the build).
+
+cbroeckl/RAMClustR
+rwehrens/ChemometricsWithR
+rwehrens/BatchCorrMetabolomics
+KechrisLab/MSPrep
+yufree/MetDIA
+ropensci/rfigshare
+Aurametrix/R/GRAPH/MetabNet
+kuppal2/xMWAS
+yufree/x13cms
+aberHRML/classyfireR
+lifs-tools/rmzTab-m
+yufree/enviGCMS
+yufree/pmd
+yufree/mzrtsim
+yufree/sfi
+# keep rmwf last: it ships the workflow templates that use the packages above
+yufree/rmwf

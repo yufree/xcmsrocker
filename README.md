@@ -22,7 +22,7 @@ Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9AC
 
 2.1 If you don't use RStudio and only run R script on HPC, you can use `sif` version: `docker pull yufree/xcmsrocker:sif`
 
-2.2 If you preferred running image on computer with ARM processor (M1 or Raspberry pi), you can use `arm` version: `docker pull yufree/xcmsrocker:arm`
+2.2 All images (`latest`, `sif`) are multi-arch (`linux/amd64` + `linux/arm64`), so the same tag works on Apple Silicon or Raspberry Pi. The old `arm` tag is kept as an alias of `latest`. Images are also mirrored on GHCR, e.g. `docker pull ghcr.io/yufree/xcmsrocker:latest`
 
 3.  Use `docker run -e PASSWORD=xcmsrocker -p 8787:8787 yufree/xcmsrocker` to start the image
 
@@ -42,6 +42,23 @@ Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9AC
 Step 2-6 could be visualized:
 
 <img src="https://yufree.github.io/presentation/figure/pmdda.gif" width="600" />
+
+## Image layout and build
+
+All images are built from one [Dockerfile](Dockerfile) with chained stages:
+
+| Stage | Adds | Published as |
+|---|---|---|
+| `cran` | tidyverse, system libraries ([pkgs/apt.txt](pkgs/apt.txt)), CRAN packages ([pkgs/cran.txt](pkgs/cran.txt)) | – |
+| `bioc` | Bioconductor packages ([pkgs/bioc.txt](pkgs/bioc.txt)) | – |
+| `sif` | drat ([pkgs/drat.txt](pkgs/drat.txt)) and GitHub ([pkgs/github.txt](pkgs/github.txt)) packages | `yufree/xcmsrocker:sif` |
+| `rstudio` | RStudio Server, pandoc, quarto, TeX Live | `yufree/xcmsrocker:latest` (`:arm`) |
+| `metabo` | Python venv + [pkgs/python.txt](pkgs/python.txt) via reticulate | `yufree/metaborocker:latest` |
+
+- To add a package, append it to the matching `pkgs/*.txt` file. Every listed package is checked with `requireNamespace()` after installation and the build fails if one is missing; prefix an entry with `?` to make it optional.
+- On GitHub Actions each stage is a separate job on native amd64/arm64 runners (to stay under the 6 h job limit), and only the stages affected by a change are rebuilt. A monthly scheduled build follows `rocker/r-ver:latest`. Use *Actions → Build xcmsrocker → Run workflow* to rebuild from a chosen stage.
+- Build locally: `docker build --target rstudio -t xcmsrocker .` (or `--target sif`).
+- `extras/` holds unrelated images (`deepspace`, `iml`) with their own workflow.
 
 ## Packages
 
