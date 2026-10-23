@@ -2,5 +2,6 @@
 Autotuner
 XMLSchema
 SSOAP
-metfRag
 xMSannotator
+# metfRag requires rJava (Java SDK) which is omitted for image slimming
+?metfRag

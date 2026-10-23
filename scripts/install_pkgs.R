@@ -67,8 +67,7 @@ switch(type,
   },
   drat = {
     install.packages(entries,
-      repos = c(drat = DRAT_REPO, getOption("repos")),
-      type = "source"
+      repos = c(drat = DRAT_REPO, getOption("repos"))
     )
   },
   github = {
