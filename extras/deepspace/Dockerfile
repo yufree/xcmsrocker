@@ -8,19 +8,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libzstd-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Core CRAN and Bioconductor packages
-RUN R -e "BiocManager::install(c('Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetwork','shinydashboard'), ask = FALSE)"
+# Core CRAN and Bioconductor packages (including remotes)
+RUN R -e "BiocManager::install(c('remotes','Rcpp','duckdb','RNetCDF','Cardinal','CardinalWorkflows','RNiftyReg','ClusterR','purrr','imager','umap','Rtsne','Matrix','igraph','tidygraph','ggraph','reshape2','dbscan','MALDIquantForeign','fpc','future','reticulate','RColorBrewer','patchwork','ggridges','pheatmap','distances','irlba','ropls','visNetwork','shinydashboard'), ask = FALSE)"
 
 # Install opentimsr via author drat repository
 RUN R -e "install.packages('opentimsr', repos = c('https://yufree.github.io/drat', 'https://cloud.r-project.org'))"
 
 # Core GitHub packages for spatial reactomics
-RUN installGithub.r yufree/rmwf yufree/enviGCMS yufree/pmd
+RUN R -e "remotes::install_github(c('yufree/rmwf', 'yufree/enviGCMS', 'yufree/pmd'), upgrade = 'never')"
 
 # Optional legacy packages wrapped in try() to ensure resilient build across newer R versions
 RUN R -e "try(remotes::install_github('nhpatterson/RegCombIMS', upgrade = 'never'))" || true
 RUN R -e "try(remotes::install_github('yufree/HiTMaP', upgrade = 'never'))" || true
-RUN R -e "try(devtools::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.3.0/SimpleITK_2.3.0_R_x86_64-pc-linux-gnu.tar.gz', build = FALSE))" || true
+RUN R -e "try(remotes::install_url('https://github.com/yufree/SimpleITKRInstaller/releases/download/v2.3.0/SimpleITK_2.3.0_R_x86_64-pc-linux-gnu.tar.gz'))" || true
 RUN rm -rf /tmp/downloaded_packages
 
 WORKDIR /opt

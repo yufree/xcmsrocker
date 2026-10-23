@@ -2,6 +2,9 @@
 # Dependencies are resolved automatically; list only packages users load.
 # Prefix with `?` to make a package optional (failure won't break the build).
 
+# Tooling
+remotes
+
 # Chemometrics / spectra
 ChemoSpec
 webchem

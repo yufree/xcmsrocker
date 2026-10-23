@@ -15,5 +15,8 @@ libglpk-dev
 # Rmpfr / gmp (multcomp, caret dependency tree)
 libgmp-dev
 libmpfr-dev
+# Rgraphviz
+graphviz
+libgraphviz-dev
 # nloptr and other packages compiled from source (notably on arm64)
 cmake

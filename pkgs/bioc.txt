@@ -28,5 +28,4 @@ KEGGgraph
 Rgraphviz
 fgsea
 metapone
-# SSPA has been removed from the current Bioconductor release
-?SSPA
+# SSPA has been removed from Bioconductor release
