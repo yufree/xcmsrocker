@@ -74,18 +74,21 @@ CMD ["R"]
 FROM sif AS rstudio
 ENV S6_VERSION="v2.1.0.2" \
     RSTUDIO_VERSION="2026.10.0+233" \
-    DEFAULT_USER="rstudio" \
-    CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
-ENV PATH="${PATH}:/usr/local/texlive/bin/linux"
+    DEFAULT_USER="rstudio"
 
 RUN /rocker_scripts/install_rstudio.sh \
  && /rocker_scripts/install_pandoc.sh \
  && /rocker_scripts/install_quarto.sh
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends ghostscript qpdf \
+ && apt-get install -y --no-install-recommends \
+    texlive-latex-base \
+    texlive-latex-recommended \
+    texlive-fonts-recommended \
+    lmodern \
+    ghostscript \
+    qpdf \
  && rm -rf /var/lib/apt/lists/* \
- && /rocker_scripts/install_texlive.sh \
  && R -e "install.packages(c('tinytex', 'bookdown', 'rticles', 'xaringan'), repos = 'https://cloud.r-project.org'); stopifnot(all(sapply(c('tinytex', 'bookdown', 'rticles', 'xaringan'), requireNamespace, quietly = TRUE)))" \
  && rm -rf /tmp/downloaded_packages \
  && (strip /usr/local/lib/R/site-library/*/libs/*.so || true)
