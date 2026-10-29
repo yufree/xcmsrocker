@@ -58,7 +58,7 @@ All images are built from one [Dockerfile](Dockerfile) with chained stages:
 - To add a package, append it to the matching `pkgs/*.txt` file. Every listed package is checked with `requireNamespace()` after installation and the build fails if one is missing; prefix an entry with `?` to make it optional.
 - On GitHub Actions each stage is a separate job on native amd64/arm64 runners (to stay under the 6 h job limit), and only the stages affected by a change are rebuilt. A monthly scheduled build follows `rocker/r-ver:latest`. Use *Actions → Build xcmsrocker → Run workflow* to rebuild from a chosen stage.
 - Build locally: `docker build --target rstudio -t xcmsrocker .` (or `--target sif`).
-- `extras/` holds unrelated images (`deepspace`, `iml`) with their own workflow.
+- `extras/` holds additional standalone images (e.g. `deepspace`) with their own workflow.
 
 ## Packages
 

@@ -27,14 +27,16 @@ jobs:
           EVENT: ${{ github.event_name }}
           BEFORE: ${{ github.event.before }}
         run: |
-          all='["deepspace","iml"]'
-          if [ "$EVENT" != "push" ] || [ -z "$BEFORE" ] || echo "$BEFORE" | grep -qE '^0+$' \
-             || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null \
-             || git diff --name-only "$BEFORE" "$GITHUB_SHA" | grep -q '^.github/workflows/extras.yml$'; then
+          all='["deepspace"]'
+          if [ "$EVENT" = "workflow_dispatch" ] || [ -z "$BEFORE" ] || echo "$BEFORE" | grep -qE '^0+$' \
+             || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
             echo "images=$all" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          imgs=$(git diff --name-only "$BEFORE" "$GITHUB_SHA" | sed -n 's#^extras/\([^/]*\)/.*#\1#p' | sort -u \
-                 | jq -R . | jq -sc .)
+          imgs=$(for img in deepspace; do
+            if [ -d "extras/$img" ] && git diff --name-only "$BEFORE" "$GITHUB_SHA" | grep -q "^extras/$img/"; then
+              echo "$img"
+            fi
+          done | jq -R . | jq -sc .)
           echo "images=$imgs" >> "$GITHUB_OUTPUT"
 
   build:
