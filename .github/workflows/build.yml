@@ -65,10 +65,21 @@ jobs:
             start=99
             for f in $(git diff --name-only "$BEFORE" "$GITHUB_SHA"); do
               case "$f" in
-                Dockerfile|scripts/*|.github/workflows/build.yml|.github/workflows/_stage.yml|pkgs/apt.txt|pkgs/cran.txt) s=0 ;;
+                scripts/*|pkgs/apt.txt|pkgs/cran.txt) s=0 ;;
                 pkgs/bioc.txt) s=1 ;;
                 pkgs/github.txt|pkgs/drat.txt) s=2 ;;
                 pkgs/python.txt) s=4 ;;
+                Dockerfile)
+                  s=0
+                  first_line=$(git diff -U0 "$BEFORE" "$GITHUB_SHA" -- Dockerfile | grep -oE '^@@ -[0-9]+' | head -1 | tr -d '@ -')
+                  if [ -n "$first_line" ]; then
+                    if [ "$first_line" -ge 87 ]; then s=4
+                    elif [ "$first_line" -ge 70 ]; then s=3
+                    elif [ "$first_line" -ge 53 ]; then s=2
+                    elif [ "$first_line" -ge 41 ]; then s=1
+                    fi
+                  fi
+                  ;;
                 *) continue ;;
               esac
               [ "$s" -lt "$start" ] && start=$s

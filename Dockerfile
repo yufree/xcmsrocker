@@ -73,7 +73,7 @@ CMD ["R"]
 ########################################################################
 FROM sif AS rstudio
 ENV S6_VERSION="v2.1.0.2" \
-    RSTUDIO_VERSION="stable" \
+    RSTUDIO_VERSION="2026.10.0+233" \
     DEFAULT_USER="rstudio" \
     CTAN_REPO="https://mirror.ctan.org/systems/texlive/tlnet"
 ENV PATH="${PATH}:/usr/local/texlive/bin/linux"
