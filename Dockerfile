@@ -81,7 +81,14 @@ ENV PATH="${PATH}:/usr/local/texlive/bin/linux"
 RUN /rocker_scripts/install_rstudio.sh \
  && /rocker_scripts/install_pandoc.sh \
  && /rocker_scripts/install_quarto.sh
-RUN /rocker_scripts/install_verse.sh
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ghostscript qpdf \
+ && rm -rf /var/lib/apt/lists/* \
+ && /rocker_scripts/install_texlive.sh \
+ && R -e "install.packages(c('tinytex', 'bookdown', 'rticles', 'xaringan'), repos = 'https://cloud.r-project.org'); stopifnot(all(sapply(c('tinytex', 'bookdown', 'rticles', 'xaringan'), requireNamespace, quietly = TRUE)))" \
+ && rm -rf /tmp/downloaded_packages \
+ && (strip /usr/local/lib/R/site-library/*/libs/*.so || true)
 
 EXPOSE 8787
 CMD ["/init"]

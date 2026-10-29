@@ -73,10 +73,10 @@ jobs:
                   s=0
                   first_line=$(git diff -U0 "$BEFORE" "$GITHUB_SHA" -- Dockerfile | grep -oE '^@@ -[0-9]+' | head -1 | tr -d '@ -')
                   if [ -n "$first_line" ]; then
-                    if [ "$first_line" -ge 87 ]; then s=4
-                    elif [ "$first_line" -ge 70 ]; then s=3
-                    elif [ "$first_line" -ge 53 ]; then s=2
-                    elif [ "$first_line" -ge 41 ]; then s=1
+                    if [ "$first_line" -ge 95 ]; then s=4
+                    elif [ "$first_line" -ge 74 ]; then s=3
+                    elif [ "$first_line" -ge 56 ]; then s=2
+                    elif [ "$first_line" -ge 46 ]; then s=1
                     fi
                   fi
                   ;;
