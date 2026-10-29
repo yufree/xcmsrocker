@@ -155,10 +155,10 @@ jobs:
           docker buildx imagetools create \
             -t "$HUB:sif" -t "$GHCR:sif" \
             "$S:sif-amd64" "$S:sif-arm64"
-      - name: xcmsrocker:latest (+ :arm alias for old instructions)
+      - name: xcmsrocker:latest
         run: |
           docker buildx imagetools create \
-            -t "$HUB:latest" -t "$HUB:arm" -t "$GHCR:latest" -t "$GHCR:arm" \
+            -t "$HUB:latest" -t "$GHCR:latest" \
             "$S:rstudio-amd64" "$S:rstudio-arm64"
 
   publish-metabo:

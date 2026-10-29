@@ -22,7 +22,7 @@ Click [here](https://docs.google.com/presentation/d/1bVEbH_n6qjD9XH86hw7RFReb9AC
 
 2.1 If you don't use RStudio and only run R script on HPC, you can use `sif` version: `docker pull yufree/xcmsrocker:sif`
 
-2.2 All images (`latest`, `sif`) are multi-arch (`linux/amd64` + `linux/arm64`), so the same tag works on Apple Silicon or Raspberry Pi. The old `arm` tag is kept as an alias of `latest`. Images are also mirrored on GHCR, e.g. `docker pull ghcr.io/yufree/xcmsrocker:latest`
+2.2 All images (`latest`, `sif`) are multi-arch (`linux/amd64` + `linux/arm64`), so the same tag works natively on Intel/AMD, Apple Silicon, and other ARM64 systems without needing a separate `:arm` tag. Images are also mirrored on GHCR, e.g. `docker pull ghcr.io/yufree/xcmsrocker:latest`
 
 3.  Use `docker run -e PASSWORD=xcmsrocker -p 8787:8787 yufree/xcmsrocker` to start the image
 
@@ -52,7 +52,7 @@ All images are built from one [Dockerfile](Dockerfile) with chained stages:
 | `cran` | tidyverse, system libraries ([pkgs/apt.txt](pkgs/apt.txt)), CRAN packages ([pkgs/cran.txt](pkgs/cran.txt)) | – |
 | `bioc` | Bioconductor packages ([pkgs/bioc.txt](pkgs/bioc.txt)) | – |
 | `sif` | drat ([pkgs/drat.txt](pkgs/drat.txt)) and GitHub ([pkgs/github.txt](pkgs/github.txt)) packages | `yufree/xcmsrocker:sif` |
-| `rstudio` | RStudio Server, pandoc, quarto, TeX Live | `yufree/xcmsrocker:latest` (`:arm`) |
+| `rstudio` | RStudio Server, pandoc, quarto, TeX Live | `yufree/xcmsrocker:latest` |
 | `metabo` | Python venv + [pkgs/python.txt](pkgs/python.txt) via reticulate | `yufree/metaborocker:latest` |
 
 - To add a package, append it to the matching `pkgs/*.txt` file. Every listed package is checked with `requireNamespace()` after installation and the build fails if one is missing; prefix an entry with `?` to make it optional.
